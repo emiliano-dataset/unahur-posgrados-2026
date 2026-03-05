@@ -4,157 +4,97 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Seguimiento Diseño Posgrados · UNAHUR 2026</title>
+<title>Seguimiento diseño Posgrados · UNAHUR 2026</title>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
---gris:#2a2a2a;
---gris-suave:#6b6560;
---gris-fondo:#f5f5f4;
---blanco:#ffffff;
-
---violeta:#5c1f7a;
---azul:#1a2f6e;
---verde:#1db87e;
---turquesa:#52b8e3;
-
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
 body{
-font-family:"DM Sans",sans-serif;
-background:var(--gris-fondo);
-color:var(--gris);
-line-height:1.5;
-padding:40px;
+font-family:'DM Sans',sans-serif;
+background:#f5f5f4;
+color:#1c1c1c;
+margin:40px;
 }
 
 h1{
-font-family:"DM Serif Display",serif;
+font-family:'DM Serif Display',serif;
 font-size:32px;
-margin-bottom:8px;
+margin-bottom:10px;
 }
 
 h2{
-font-family:"DM Serif Display",serif;
-font-size:22px;
-margin:40px 0 12px;
-}
-
-p{
-color:var(--gris-suave);
-font-size:14px;
-margin-bottom:20px;
-max-width:700px;
+font-family:'DM Serif Display',serif;
+margin-top:40px;
+margin-bottom:10px;
 }
 
 .panel{
-background:var(--blanco);
-padding:28px;
+background:white;
+padding:25px;
 border-radius:10px;
-box-shadow:0 2px 12px rgba(0,0,0,0.06);
-margin-bottom:24px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+margin-bottom:30px;
 }
 
-.color-grid{
+.colors{
 display:flex;
-gap:14px;
 flex-wrap:wrap;
+gap:15px;
 }
 
 .color{
-width:150px;
+width:180px;
 border-radius:8px;
 overflow:hidden;
-box-shadow:0 1px 6px rgba(0,0,0,0.08);
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
 .swatch{
 height:60px;
 }
 
-.color-info{
+.info{
 padding:10px;
-font-size:12px;
+font-size:13px;
 }
 
-.status{
-font-size:11px;
-font-weight:600;
-margin-top:4px;
-}
-
-.ok{color:#138054}
-.sug{color:#1a2f6e}
-.pen{color:#a3400a}
-
-.programas{
+.programs{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-gap:16px;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:15px;
 }
 
-.programa{
-background:var(--blanco);
+.program{
+background:white;
 padding:18px;
 border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.06);
+box-shadow:0 2px 8px rgba(0,0,0,0.07);
 }
 
-.programa h3{
-font-size:16px;
-margin-bottom:8px;
+.program h3{
+font-size:15px;
+margin-bottom:5px;
 }
 
-.programa small{
-color:var(--gris-suave);
+.program small{
+color:#6b6560;
 }
 
-.check{
-margin-top:10px;
-font-size:14px;
-}
-
-.secciones{
+.list{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
 gap:10px;
-margin-top:10px;
+margin-top:15px;
 }
 
-.seccion{
-background:var(--blanco);
+.item{
+background:white;
 padding:10px;
-border-left:3px solid var(--azul);
-font-size:13px;
+border-left:4px solid #1a2f6e;
 border-radius:6px;
-box-shadow:0 1px 5px rgba(0,0,0,0.05);
-}
-
-.timeline{
-margin-top:12px;
-}
-
-.tl{
-margin-bottom:12px;
-background:var(--blanco);
-padding:14px;
-border-radius:8px;
-box-shadow:0 1px 6px rgba(0,0,0,0.05);
-}
-
-.tl strong{
-display:block;
+box-shadow:0 1px 5px rgba(0,0,0,0.06);
 font-size:13px;
-}
-
-.tl span{
-font-size:12px;
-color:var(--gris-suave);
 }
 
 </style>
@@ -163,63 +103,63 @@ color:var(--gris-suave);
 <body>
 
 <h1>Diseño de Posgrados · UNAHUR 2026</h1>
+
 <p>
-Panel interno de seguimiento para el diseño de aulas en el campus.  
-Los diseños de interfaz se desarrollan en Figma y luego se implementan en Moodle.
+Panel de seguimiento del diseño de aulas para los posgrados del campus.
+Los diseños se desarrollan en Figma y luego se implementan en Moodle.
 </p>
 
 <div class="panel">
 
-<h2>Paleta de color (estado actual)</h2>
+<h2>Paleta de color (según mails)</h2>
 
-<div class="color-grid">
+<div class="colors">
 
 <div class="color">
 <div class="swatch" style="background:#5c1f7a"></div>
-<div class="color-info">
+<div class="info">
 Violeta<br>
-INKVERSO · MELC
-<div class="status ok">confirmado</div>
+MELC / INKVERSO
 </div>
 </div>
 
 <div class="color">
 <div class="swatch" style="background:#1a2f6e"></div>
-<div class="color-info">
-Azul petróleo
-<div class="status sug">sugerido</div>
+<div class="info">
+Azul petróleo<br>
+Posgrado general
 </div>
 </div>
 
 <div class="color">
 <div class="swatch" style="background:#1db87e"></div>
-<div class="color-info">
-Verde institucional
-<div class="status sug">sugerido</div>
+<div class="info">
+Verde institucional<br>
+Posgrado nuevo
 </div>
 </div>
 
 <div class="color">
 <div class="swatch" style="background:#52b8e3"></div>
-<div class="color-info">
-Turquesa institucional
-<div class="status sug">sugerido</div>
+<div class="info">
+Turquesa institucional<br>
+Posgrado nuevo
 </div>
 </div>
 
 <div class="color">
-<div class="swatch" style="background:#b0afae"></div>
-<div class="color-info">
-Color adicional 1
-<div class="status pen">pendiente</div>
+<div class="swatch" style="background:#5b3a29"></div>
+<div class="info">
+Marrón oscuro<br>
+Filosofía contemporánea
 </div>
 </div>
 
 <div class="color">
-<div class="swatch" style="background:#6b6560"></div>
-<div class="color-info">
-Color adicional 2
-<div class="status pen">pendiente</div>
+<div class="swatch" style="background:#d2b48c"></div>
+<div class="info">
+Arena / beige<br>
+Color adicional
 </div>
 </div>
 
@@ -229,67 +169,38 @@ Color adicional 2
 
 <div class="panel">
 
-<h2>Posgrados 2026</h2>
+<h2>Programas de posgrado</h2>
 
-<div class="programas">
+<div class="programs">
 
-<div class="programa">
-<h3>Programa · Especialización en Matemática Avanzada</h3>
-<small>Referencia gráfica del curso 2025 disponible.</small>
-
-<div class="check">
-☐ Aula cartelera<br>
-☐ Aula modelo de seminario
-</div>
+<div class="program">
+<h3>Especialización en Matemática Avanzada</h3>
+<small>Referencia gráfica del curso anterior disponible.</small>
 </div>
 
-<div class="programa">
-<h3>Programa · Problemas Filosóficos Contemporáneos</h3>
-<small>Identidad a definir con equipo referente.</small>
-
-<div class="check">
-☐ Aula cartelera<br>
-☐ Aula modelo de seminario
-</div>
+<div class="program">
+<h3>Problemas Filosóficos Contemporáneos</h3>
+<small>Definir identidad visual con equipo referente.</small>
 </div>
 
-<div class="programa">
-<h3>Programa · Estadística Aplicada en Salud y Educación</h3>
-<small>Concepto propuesto: estadística como lenguaje común.</small>
-
-<div class="check">
-☐ Aula cartelera<br>
-☐ Aula modelo de seminario
-</div>
+<div class="program">
+<h3>Estadística Aplicada en Salud y Educación</h3>
+<small>Concepto: estadística como lenguaje común.</small>
 </div>
 
-<div class="programa">
-<h3>Programa · Bio-nanotecnología</h3>
-<small>Sistema gráfico del curso anterior disponible.</small>
-
-<div class="check">
-☐ Aula cartelera<br>
-☐ Aula modelo de seminario
-</div>
+<div class="program">
+<h3>Bio-nanotecnología</h3>
+<small>Sistema gráfico previo disponible.</small>
 </div>
 
-<div class="programa">
-<h3>Programa · IA aplicada a la Biotecnología</h3>
-<small>Categoría del campus aún no creada.</small>
-
-<div class="check">
-☐ Aula cartelera<br>
-☐ Aula modelo de seminario
-</div>
+<div class="program">
+<h3>IA aplicada a la Biotecnología</h3>
+<small>Categoría del campus pendiente.</small>
 </div>
 
-<div class="programa">
-<h3>Maestría · Estudios Literarios Contemporáneos</h3>
+<div class="program">
+<h3>Maestría en Estudios Literarios Contemporáneos</h3>
 <small>Identidad INKVERSO ya validada.</small>
-
-<div class="check">
-☐ Aula modelo de seminario
-</div>
 </div>
 
 </div>
@@ -300,16 +211,16 @@ Color adicional 2
 
 <h2>Estructura Aula Cartelera</h2>
 
-<div class="secciones">
+<div class="list">
 
-<div class="seccion">Encabezado del Posgrado</div>
-<div class="seccion">Texto de bienvenida</div>
-<div class="seccion">Resoluciones de la carrera</div>
-<div class="seccion">Cronograma general</div>
-<div class="seccion">Aulas de cursada</div>
-<div class="seccion">Miniaturas de seminarios</div>
-<div class="seccion">Espacio de consultas</div>
-<div class="seccion">Espacio de avisos</div>
+<div class="item">Encabezado del Posgrado</div>
+<div class="item">Texto de bienvenida</div>
+<div class="item">Resoluciones de la Carrera</div>
+<div class="item">Cronograma general del Posgrado</div>
+<div class="item">Aulas de cursada</div>
+<div class="item">Miniaturas de accesos directos a seminarios</div>
+<div class="item">Espacio de Consultas</div>
+<div class="item">Espacio de Avisos</div>
 
 </div>
 
@@ -317,29 +228,16 @@ Color adicional 2
 
 <div class="panel">
 
-<h2>Hoja de ruta</h2>
+<h2>Estructura Aula Base de Seminario</h2>
 
-<div class="timeline">
+<div class="list">
 
-<div class="tl">
-<strong>Reunión con equipo de Filosofía</strong>
-<span>Definir identidad visual.</span>
-</div>
-
-<div class="tl">
-<strong>Diseño aula base MELC</strong>
-<span>Usar identidad violeta de INKVERSO.</span>
-</div>
-
-<div class="tl">
-<strong>Diseño templates de color</strong>
-<span>Generar 5 combos cartelera + seminario.</span>
-</div>
-
-<div class="tl">
-<strong>Implementación en campus</strong>
-<span>Asociar aulas a cada categoría.</span>
-</div>
+<div class="item">Pestaña Presentación</div>
+<div class="item">Pestaña Unidad 1</div>
+<div class="item">Identidad visual del posgrado</div>
+<div class="item">Materiales del seminario</div>
+<div class="item">Actividades y entregas</div>
+<div class="item">Foro de consultas</div>
 
 </div>
 
