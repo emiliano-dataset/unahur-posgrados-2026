@@ -4,261 +4,293 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Posgrados UNAHUR · Seguimiento de diseño 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 
 :root {
-  --bg: #f2f0eb;
+  --bg: #f0eee9;
   --surface: #faf9f7;
-  --border: #e2ddd6;
-  --text: #1a1814;
-  --muted: #8a857c;
-  --header-bg: #2a2825;
-  --header-text: #f2f0eb;
+  --surface2: #f4f2ed;
+  --border: #dedad2;
+  --border2: #ccc8c0;
+  --text: #18170f;
+  --muted: #7d786f;
+  --faint: #b0aa9f;
+  --header-bg: #1e1d1a;
+  --header-text: #f0eee9;
 
-  --ok-bg: #e8f5ef;        --ok-fg: #0f6640;
-  --conversar-bg: #fff3e8; --conversar-fg: #a3400a;
-  --definir-bg: #eaeffc;   --definir-fg: #1a2f6e;
-  --pendiente-bg: #eeebe6; --pendiente-fg: #6b6560;
+  --ok-bg: #e4f4ec;        --ok-fg: #0c5c35;      --ok-border: #b6dfc8;
+  --conversar-bg: #fef2e6; --conversar-fg: #8c3608; --conversar-border: #f5c99a;
+  --definir-bg: #e8eefb;   --definir-fg: #1a2f6e;  --definir-border: #b8caee;
+  --pendiente-bg: #edebe6; --pendiente-fg: #5e5950; --pendiente-border: #d0ccc4;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* HEADER */
+/* ── HEADER ── */
 header {
   background: var(--header-bg);
   color: var(--header-text);
-  padding: 52px 56px 46px;
+  padding: 56px 60px 50px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
-.header-label {
-  font-family: 'Syne', sans-serif;
+.header-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .18em;
+  font-weight: 400;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: rgba(242,240,235,.35);
-  margin-bottom: 18px;
+  color: rgba(240,238,233,.3);
+  margin-bottom: 20px;
 }
 
 header h1 {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.1;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.15;
   letter-spacing: -.02em;
   color: var(--header-text);
+  margin-bottom: 0;
 }
 
-header h1 span {
-  color: rgba(242,240,235,.32);
-  font-weight: 400;
+header h1 .slash {
+  color: rgba(240,238,233,.25);
+  font-weight: 300;
+  margin: 0 6px;
+}
+
+header h1 .sub {
+  color: rgba(240,238,233,.35);
+  font-weight: 300;
 }
 
 .header-rule {
-  width: 28px;
+  width: 24px;
   height: 1px;
-  background: rgba(242,240,235,.16);
-  margin: 24px 0;
+  background: rgba(240,238,233,.14);
+  margin: 28px 0;
 }
 
 .header-meta {
   display: flex;
-  gap: 40px;
+  gap: 44px;
   flex-wrap: wrap;
 }
 
 .meta-item {
-  font-size: 11px;
-  color: rgba(242,240,235,.38);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: rgba(240,238,233,.32);
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
 .meta-item strong {
   display: block;
-  color: rgba(242,240,235,.78);
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: rgba(240,238,233,.75);
   font-size: 13px;
   font-weight: 500;
-  margin-top: 3px;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 5px;
 }
 
 .deadline-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  border: 1px solid rgba(242,240,235,.13);
-  color: rgba(242,240,235,.48);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .04em;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-top: 26px;
+  gap: 8px;
+  border: 1px solid rgba(240,238,233,.12);
+  color: rgba(240,238,233,.4);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .06em;
+  padding: 7px 14px;
+  border-radius: 2px;
+  margin-top: 30px;
+  text-transform: uppercase;
 }
 
-/* LAYOUT */
+/* ── LAYOUT ── */
 main {
-  padding: 48px 56px 80px;
-  max-width: 1180px;
+  padding: 52px 60px 90px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-section { margin-bottom: 52px; }
+section { margin-bottom: 56px; }
 
 .section-header {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  margin-bottom: 6px;
+  gap: 14px;
+  margin-bottom: 8px;
 }
 
 .section-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: .14em;
+  color: var(--faint);
 }
 
 .section-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: -.01em;
+  color: var(--text);
 }
 
 .section-sub {
   font-size: 13px;
   color: var(--muted);
-  margin-bottom: 22px;
-  max-width: 580px;
-  line-height: 1.65;
+  margin-bottom: 24px;
+  max-width: 600px;
+  line-height: 1.7;
 }
 
 .divider {
   height: 1px;
   background: var(--border);
-  margin: 0 0 52px;
+  margin: 0 0 56px;
 }
 
-/* TAGS */
+/* ── TAGS ── */
 .tag {
   display: inline-block;
-  font-family: 'Syne', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .09em;
+  font-weight: 500;
+  letter-spacing: .1em;
   text-transform: uppercase;
   padding: 3px 8px;
-  border-radius: 3px;
+  border-radius: 2px;
   white-space: nowrap;
 }
-.tag.ok        { background: var(--ok-bg);        color: var(--ok-fg); }
-.tag.conversar { background: var(--conversar-bg);  color: var(--conversar-fg); }
-.tag.definir   { background: var(--definir-bg);    color: var(--definir-fg); }
-.tag.pendiente { background: var(--pendiente-bg);  color: var(--pendiente-fg); }
+.tag.ok        { background: var(--ok-bg);        color: var(--ok-fg);        border: 1px solid var(--ok-border); }
+.tag.conversar { background: var(--conversar-bg);  color: var(--conversar-fg); border: 1px solid var(--conversar-border); }
+.tag.definir   { background: var(--definir-bg);    color: var(--definir-fg);   border: 1px solid var(--definir-border); }
+.tag.pendiente { background: var(--pendiente-bg);  color: var(--pendiente-fg); border: 1px solid var(--pendiente-border); }
 
-/* TIMELINE */
+/* ── TIMELINE ── */
 .timeline {
   display: flex;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
 }
 
 .tl-step {
   flex: 1;
-  padding: 24px 20px;
+  padding: 26px 22px;
   border-right: 1px solid var(--border);
+  position: relative;
 }
 .tl-step:last-child { border-right: none; }
 
 .tl-icon {
-  width: 32px; height: 32px;
-  border-radius: 8px;
+  width: 34px; height: 34px;
+  border-radius: 4px;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  border: 1px solid transparent;
 }
-.tl-icon.done     { background: var(--ok-bg); }
-.tl-icon.active   { background: var(--definir-bg); }
-.tl-icon.upcoming { background: var(--pendiente-bg); }
+.tl-icon.done     { background: var(--ok-bg);        border-color: var(--ok-border); }
+.tl-icon.active   { background: var(--definir-bg);    border-color: var(--definir-border); }
+.tl-icon.upcoming { background: var(--pendiente-bg);  border-color: var(--pendiente-border); }
 
 .tl-label {
-  font-family: 'Syne', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
   color: var(--text);
-  margin-bottom: 4px;
-  line-height: 1.3;
+  margin-bottom: 5px;
+  line-height: 1.4;
 }
 
-.tl-date { font-size: 11px; color: var(--muted); }
+.tl-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: .04em;
+}
 
-/* COLORS */
+/* ── COLORS ── */
 .colors-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(176px, 1fr));
   gap: 12px;
 }
 
 .color-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
 }
 
-.color-swatch { height: 64px; position: relative; }
+.color-swatch { height: 68px; position: relative; }
 
 .hex-label {
   position: absolute;
-  bottom: 7px; right: 9px;
+  bottom: 8px; right: 10px;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
-  color: rgba(255,255,255,.48);
-  font-weight: 500;
+  color: rgba(255,255,255,.45);
   letter-spacing: .04em;
 }
 
-.color-info { padding: 13px 14px; }
+.color-info { padding: 14px 15px; }
 
 .color-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
   font-weight: 600;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+  letter-spacing: -.01em;
 }
 
 .color-desc {
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--muted);
-  line-height: 1.45;
-  margin-bottom: 9px;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
-/* PROGRAM CARDS */
+/* ── PROGRAM CARDS ── */
 .programs {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
 }
 
 .program-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
-  transition: box-shadow .2s;
+  transition: box-shadow .18s, border-color .18s;
 }
-.program-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,.07); }
+.program-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,.07);
+  border-color: var(--border2);
+}
 
-.card-stripe { height: 5px; }
+.card-stripe { height: 4px; }
 .card-body { padding: 20px 22px 22px; }
 
 .card-top {
@@ -270,18 +302,17 @@ section { margin-bottom: 52px; }
 }
 
 .card-body h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 13.5px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.45;
   flex: 1;
-  letter-spacing: -.01em;
 }
 
 .card-note {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 14px;
 }
 
@@ -289,16 +320,16 @@ section { margin-bottom: 52px; }
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .pill {
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
-  font-weight: 500;
   padding: 3px 9px;
-  border-radius: 20px;
+  border-radius: 2px;
   border: 1px solid var(--border);
-  color: var(--muted);
+  color: var(--faint);
   background: var(--bg);
   display: flex;
   align-items: center;
@@ -307,162 +338,178 @@ section { margin-bottom: 52px; }
 
 .pill.done {
   background: var(--ok-bg);
-  border-color: #bde7d0;
+  border-color: var(--ok-border);
   color: var(--ok-fg);
 }
 
 .campus-row {
-  font-size: 11px;
-  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--faint);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding-top: 12px;
   border-top: 1px solid var(--border);
+  letter-spacing: .03em;
+  text-transform: uppercase;
 }
 
 .campus-badge {
-  font-family: 'Syne', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .06em;
+  font-weight: 600;
+  letter-spacing: .08em;
   padding: 2px 7px;
-  border-radius: 3px;
+  border-radius: 2px;
+  text-transform: uppercase;
 }
-.campus-badge.creada    { background: var(--ok-bg);        color: var(--ok-fg); }
-.campus-badge.pendiente { background: var(--conversar-bg); color: var(--conversar-fg); }
+.campus-badge.creada    { background: var(--ok-bg);        color: var(--ok-fg);        border: 1px solid var(--ok-border); }
+.campus-badge.pendiente { background: var(--conversar-bg);  color: var(--conversar-fg); border: 1px solid var(--conversar-border); }
 
-/* INFO BOXES */
+/* ── INFO BOXES ── */
 .info-box {
   background: var(--definir-bg);
-  border-left: 3px solid #1a2f6e;
-  border-radius: 0 8px 8px 0;
-  padding: 13px 18px;
-  font-size: 12.5px;
+  border-left: 3px solid var(--definir-fg);
+  padding: 14px 18px;
+  font-size: 13px;
   color: var(--definir-fg);
-  line-height: 1.65;
+  line-height: 1.7;
   margin-top: 14px;
+  border-radius: 0 4px 4px 0;
 }
 
 .ok-box {
   background: var(--ok-bg);
   border-left: 3px solid var(--ok-fg);
-  border-radius: 0 8px 8px 0;
-  padding: 13px 18px;
-  font-size: 12.5px;
+  padding: 14px 18px;
+  font-size: 13px;
   color: var(--ok-fg);
-  line-height: 1.65;
+  line-height: 1.7;
   margin-top: 10px;
+  border-radius: 0 4px 4px 0;
 }
 
-/* ESTRUCTURA */
+/* ── ESTRUCTURA ── */
 .structure-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
 }
 
 .struct-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 24px;
 }
 
 .struct-card-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: -.01em;
+  letter-spacing: .02em;
   margin-bottom: 18px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
+  color: var(--text);
 }
 
-.struct-items { display: flex; flex-direction: column; gap: 5px; }
+.struct-items { display: flex; flex-direction: column; gap: 4px; }
 
 .struct-item {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
   font-size: 13px;
   padding: 9px 12px;
-  background: var(--bg);
-  border-radius: 7px;
+  background: var(--surface2);
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: border-color .15s;
 }
+.struct-item:hover { border-color: var(--border); }
 
 .struct-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--faint);
   width: 18px;
   flex-shrink: 0;
+  letter-spacing: .04em;
 }
 
-/* AULA CARTELERA INICIO */
+/* ── AULA CARTELERA INICIO ── */
 .inicio-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
 }
 
 .inicio-header {
   background: var(--header-bg);
-  padding: 26px 32px;
+  padding: 28px 34px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
 }
 
 .inicio-icon {
-  width: 40px; height: 40px;
-  border-radius: 9px;
-  background: rgba(242,240,235,.07);
+  width: 42px; height: 42px;
+  border-radius: 5px;
+  background: rgba(240,238,233,.06);
+  border: 1px solid rgba(240,238,233,.08);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 
 .inicio-header-text h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--header-text);
+  margin-bottom: 4px;
   letter-spacing: -.01em;
-  margin-bottom: 3px;
 }
 
 .inicio-header-text p {
-  font-size: 11.5px;
-  color: rgba(242,240,235,.38);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: rgba(240,238,233,.32);
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-.inicio-body { padding: 28px 32px; }
+.inicio-body { padding: 30px 34px; }
 
 .inicio-sections {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
   gap: 10px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .inicio-item {
   border: 1px solid var(--border);
-  border-radius: 9px;
+  border-radius: 5px;
   padding: 14px 15px;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  background: var(--bg);
+  gap: 13px;
+  background: var(--surface2);
+  transition: border-color .15s;
 }
+.inicio-item:hover { border-color: var(--border2); }
 
 .inicio-item-icon {
   width: 30px; height: 30px;
-  border-radius: 7px;
+  border-radius: 5px;
   background: var(--surface);
   border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
@@ -470,24 +517,27 @@ section { margin-bottom: 52px; }
 }
 
 .inicio-item-label {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--text);
 }
 
 .inicio-item-sub {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 2px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--faint);
+  margin-top: 3px;
   line-height: 1.4;
+  letter-spacing: .02em;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   header, main { padding-left: 22px; padding-right: 22px; }
   .structure-grid { grid-template-columns: 1fr; }
   .timeline { flex-direction: column; }
   .tl-step { border-right: none; border-bottom: 1px solid var(--border); }
+  header h1 { font-size: 22px; }
 }
 
 </style>
@@ -495,8 +545,8 @@ section { margin-bottom: 52px; }
 <body>
 
 <header>
-  <div class="header-label">UNAHUR · Campus Virtual · 2026</div>
-  <h1>Diseño de Posgrados <span>/ Seguimiento</span></h1>
+  <div class="header-eyebrow">UNAHUR · Campus Virtual · 2026</div>
+  <h1>Diseño de Posgrados<span class="slash">/</span><span class="sub">Seguimiento</span></h1>
   <div class="header-rule"></div>
   <div class="header-meta">
     <div class="meta-item">Diseño
@@ -511,7 +561,7 @@ section { margin-bottom: 52px; }
   </div>
   <div class="deadline-pill">
     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    Entrega ideal: 11–12 de marzo
+    Entrega estimada · 11–12 de marzo
   </div>
 </header>
 
@@ -528,7 +578,7 @@ section { margin-bottom: 52px; }
     <div class="timeline">
       <div class="tl-step">
         <div class="tl-icon done">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0f6640" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c5c35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <div class="tl-label">Brief recibido</div>
         <div class="tl-date">4 mar</div>
@@ -549,17 +599,17 @@ section { margin-bottom: 52px; }
       </div>
       <div class="tl-step">
         <div class="tl-icon upcoming">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6560" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5e5950" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
         <div class="tl-label">Aula seminario base</div>
         <div class="tl-date">Siguiente</div>
       </div>
       <div class="tl-step">
         <div class="tl-icon upcoming">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6560" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5e5950" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
-        <div class="tl-label">Entrega completa</div>
-        <div class="tl-date">11–12 mar</div>
+        <div class="tl-label">Entrega estimada</div>
+        <div class="tl-date">11–12 mar · flexible</div>
       </div>
     </div>
   </section>
@@ -580,7 +630,7 @@ section { margin-bottom: 52px; }
         <div class="color-info">
           <div class="color-name">Violeta</div>
           <div class="color-desc">Maestría en Estudios Literarios · INKVERSO</div>
-          <span class="tag ok">VALIDADO</span>
+          <span class="tag ok">Validado</span>
         </div>
       </div>
       <div class="color-card">
@@ -588,7 +638,7 @@ section { margin-bottom: 52px; }
         <div class="color-info">
           <div class="color-name">Azul petróleo</div>
           <div class="color-desc">Sistema general de posgrado</div>
-          <span class="tag definir">PLENO DE COLOR</span>
+          <span class="tag definir">Pleno de color</span>
         </div>
       </div>
       <div class="color-card">
@@ -596,7 +646,7 @@ section { margin-bottom: 52px; }
         <div class="color-info">
           <div class="color-name">Verde</div>
           <div class="color-desc">Institucional Unahur</div>
-          <span class="tag definir">PLENO DE COLOR</span>
+          <span class="tag definir">Pleno de color</span>
         </div>
       </div>
       <div class="color-card">
@@ -604,7 +654,7 @@ section { margin-bottom: 52px; }
         <div class="color-info">
           <div class="color-name">Turquesa</div>
           <div class="color-desc">Institucional Unahur</div>
-          <span class="tag definir">PLENO DE COLOR</span>
+          <span class="tag definir">Pleno de color</span>
         </div>
       </div>
       <div class="color-card">
@@ -612,17 +662,17 @@ section { margin-bottom: 52px; }
         <div class="color-info">
           <div class="color-name">Amarillo</div>
           <div class="color-desc">Propuesta para Filosofía o Estadística</div>
-          <span class="tag conversar">A CONVERSAR</span>
+          <span class="tag conversar">A conversar</span>
         </div>
       </div>
       <div class="color-card">
-        <div class="color-swatch" style="background:#e4e0d8;display:flex;align-items:center;justify-content:center;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b0aba3" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        <div class="color-swatch" style="background:#e0ddd6;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa49c" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
         </div>
         <div class="color-info">
           <div class="color-name">Por definir</div>
           <div class="color-desc">1 o 2 colores adicionales para completar la paleta</div>
-          <span class="tag pendiente">PENDIENTE</span>
+          <span class="tag pendiente">Pendiente</span>
         </div>
       </div>
     </div>
@@ -643,84 +693,84 @@ section { margin-bottom: 52px; }
       <div class="program-card">
         <div class="card-stripe" style="background:#5c1f7a"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Maestría en Estudios Literarios Contemporáneos</h3><span class="tag ok">VALIDADO</span></div>
+          <div class="card-top"><h3>Maestría en Estudios Literarios Contemporáneos</h3><span class="tag ok">Validado</span></div>
           <p class="card-note">Identidad INKVERSO validada en violeta. <strong>Prioridad inmediata:</strong> desarrollo del aula base de seminario.</p>
           <div class="card-pills">
             <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Identidad</span>
             <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cartelera</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
           </div>
-          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
         <div class="card-stripe" style="background:#1a2f6e"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Matemática Avanzada</h3><span class="tag definir">EN DEFINICIÓN</span></div>
+          <div class="card-top"><h3>Especialización en Matemática Avanzada</h3><span class="tag definir">En definición</span></div>
           <p class="card-note">Sistema gráfico de referencia disponible del año anterior. Se avanza con pleno de color.</p>
           <div class="card-pills">
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
           </div>
-          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
         <div class="card-stripe" style="background:#f2c94c"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Problemas Filosóficos Contemporáneos</h3><span class="tag conversar">A CONVERSAR</span></div>
+          <div class="card-top"><h3>Especialización en Problemas Filosóficos Contemporáneos</h3><span class="tag conversar">A conversar</span></div>
           <p class="card-note">Reunión con el equipo referente para definir la identidad visual. Sistema gráfico previo disponible como referencia.</p>
           <div class="card-pills">
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
           </div>
-          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
         <div class="card-stripe" style="background:#1db87e"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Estadística Aplicada en Salud y Educación</h3><span class="tag conversar">A CONVERSAR</span></div>
+          <div class="card-top"><h3>Especialización en Estadística Aplicada en Salud y Educación</h3><span class="tag conversar">A conversar</span></div>
           <p class="card-note">La dirección propone una identidad creativa basada en el concepto <em>"La estadística como puente y lenguaje común"</em>. Estilo abstracto, líneas limpias, elementos de datos y disciplinas.</p>
           <div class="card-pills">
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad creativa</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
           </div>
-          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
         <div class="card-stripe" style="background:#52b8e3"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Bio-nanotecnología</h3><span class="tag definir">EN DEFINICIÓN</span></div>
+          <div class="card-top"><h3>Especialización en Bio-nanotecnología</h3><span class="tag definir">En definición</span></div>
           <p class="card-note">Sistema gráfico previo disponible. Se avanza con pleno de color mientras se valida la identidad con el equipo referente.</p>
           <div class="card-pills">
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
           </div>
-          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
-        <div class="card-stripe" style="background:#c8c4bc"></div>
+        <div class="card-stripe" style="background:#c4c0b8"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en IA aplicada a la Biotecnología</h3><span class="tag pendiente">PENDIENTE</span></div>
+          <div class="card-top"><h3>Especialización en IA aplicada a la Biotecnología</h3><span class="tag pendiente">Pendiente</span></div>
           <p class="card-note">Categoría en campus pendiente de creación. Se integrará al flujo de trabajo una vez disponible.</p>
           <div class="card-pills">
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
           </div>
-          <div class="campus-row">Categoría campus: <span class="campus-badge pendiente">PENDIENTE DE CREAR</span></div>
+          <div class="campus-row">Campus: <span class="campus-badge pendiente">Pendiente de crear</span></div>
         </div>
       </div>
 
@@ -744,7 +794,7 @@ section { margin-bottom: 52px; }
 
       <div class="struct-card">
         <div class="struct-card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           Aula Cartelera
         </div>
         <div class="struct-items">
@@ -761,7 +811,7 @@ section { margin-bottom: 52px; }
 
       <div class="struct-card">
         <div class="struct-card-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           Aula Base de Seminario
         </div>
         <div class="struct-items">
@@ -790,7 +840,7 @@ section { margin-bottom: 52px; }
     <div class="inicio-card">
       <div class="inicio-header">
         <div class="inicio-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(242,240,235,.6)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(240,238,233,.55)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <div class="inicio-header-text">
           <h3>Aula Cartelera · Base</h3>
@@ -807,7 +857,7 @@ section { margin-bottom: 52px; }
             </div>
             <div>
               <div class="inicio-item-label">Encabezado</div>
-              <div class="inicio-item-sub">Identidad visual · nombre · institución</div>
+              <div class="inicio-item-sub">Identidad · nombre · institución</div>
             </div>
           </div>
 
@@ -827,7 +877,7 @@ section { margin-bottom: 52px; }
             </div>
             <div>
               <div class="inicio-item-label">Resoluciones</div>
-              <div class="inicio-item-sub">Documentación oficial de la carrera</div>
+              <div class="inicio-item-sub">Documentación oficial</div>
             </div>
           </div>
 
@@ -837,7 +887,7 @@ section { margin-bottom: 52px; }
             </div>
             <div>
               <div class="inicio-item-label">Cronograma</div>
-              <div class="inicio-item-sub">Planificación general del posgrado</div>
+              <div class="inicio-item-sub">Planificación del posgrado</div>
             </div>
           </div>
 
@@ -856,7 +906,7 @@ section { margin-bottom: 52px; }
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
             </div>
             <div>
-              <div class="inicio-item-label">Miniaturas de seminarios</div>
+              <div class="inicio-item-label">Miniaturas</div>
               <div class="inicio-item-sub">Accesos directos a cada aula</div>
             </div>
           </div>
