@@ -3,486 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planificación Posgrados · UNAHUR 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<title>Seguimiento Diseño Posgrados · UNAHUR 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --violeta:    #5c1f7a;
-    --carbon:     #2d2d2d;
-    --naranja:    #f5a623;
-    --esmeralda:  #1db87e;
-    --cian:       #006d8f;
-    --marino:     #1a2f6e;
-    --celeste:    #52b8e3;
-    --gris-90:    #2a2a2a;
-    --gris-60:    #5e5e5e;
-    --gris-30:    #b0afae;
-    --gris-10:    #ebebeb;
-    --gris-fondo: #f5f5f4;
-    --blanco:     #ffffff;
-    --alerta:     #a3400a;
-    --texto:      #1c1c1c;
-    --texto-suave:#6b6560;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'DM Sans',sans-serif; background:var(--gris-fondo); color:var(--texto); min-height:100vh; }
 
-  /* HEADER */
-  header {
-    background:var(--gris-90); padding:2.5rem 3rem 2rem;
-    position:relative; overflow:hidden;
-  }
-  header::before {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(135deg,rgba(0,109,143,0.25) 0%,transparent 55%);
-    pointer-events:none;
-  }
-  .header-top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; }
-  .header-label { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gris-30); margin-bottom:0.5rem; font-weight:500; position:relative; }
-  header h1 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); color:var(--blanco); line-height:1.1; position:relative; }
-  header p  { color:var(--gris-30); margin-top:0.45rem; font-size:0.88rem; position:relative; }
+:root{
+--gris:#2a2a2a;
+--gris-suave:#6b6560;
+--gris-fondo:#f5f5f4;
+--blanco:#ffffff;
 
-  /* SHARE */
-  .share-area { display:flex; flex-direction:column; align-items:flex-end; gap:0.5rem; position:relative; z-index:2; padding-top:0.2rem; }
-  .btn-share {
-    display:inline-flex; align-items:center; gap:0.5rem;
-    background:rgba(255,255,255,0.1); border:1.5px solid rgba(255,255,255,0.25);
-    color:var(--blanco); padding:0.5rem 1.2rem; border-radius:6px;
-    font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:600;
-    cursor:pointer; transition:all 0.18s; white-space:nowrap;
-  }
-  .btn-share:hover { background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.5); }
-  .btn-share.saved { background:rgba(29,184,126,0.3); border-color:rgba(29,184,126,0.6); color:#7efbb0; }
-  .share-hint { font-size:0.68rem; color:var(--gris-30); text-align:right; max-width:220px; line-height:1.45; display:none; }
-  .share-hint.visible { display:block; }
+--violeta:#5c1f7a;
+--azul:#1a2f6e;
+--verde:#1db87e;
+--turquesa:#52b8e3;
 
-  /* HOW IT WORKS */
-  .how-it-works {
-    background:var(--blanco); border-left:3px solid var(--cian);
-    margin:2rem 3rem 0; padding:1.2rem 1.6rem;
-    border-radius:0 10px 10px 0; max-width:900px;
-  }
-  .how-title { font-size:0.68rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--cian); margin-bottom:0.7rem; }
-  .how-it-works p { font-size:0.83rem; color:var(--texto-suave); line-height:1.78; }
-  .how-it-works strong { color:var(--texto); font-weight:600; }
+}
 
-  /* MAIN */
-  main { padding:2rem 3rem; max-width:1300px; margin:0 auto; }
-  .section-title {
-    font-family:'DM Serif Display',serif; font-size:1.25rem; color:var(--gris-90);
-    margin-bottom:0.5rem; display:flex; align-items:center; gap:0.7rem;
-  }
-  .section-title::after { content:''; flex:1; height:1px; background:var(--gris-10); }
-  .section-sub { font-size:0.77rem; color:var(--texto-suave); margin-bottom:1.2rem; }
+*{box-sizing:border-box;margin:0;padding:0}
 
-  /* PALETA */
-  .paleta-grid { display:flex; gap:0.85rem; flex-wrap:wrap; margin-bottom:2.5rem; }
-  .color-card {
-    flex:1; min-width:115px; border-radius:10px; overflow:hidden;
-    box-shadow:0 1px 8px rgba(0,0,0,0.09); transition:transform 0.18s,box-shadow 0.18s;
-  }
-  .color-card:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(0,0,0,0.13); }
-  .color-swatch { height:68px; }
-  .color-info { background:var(--blanco); padding:0.6rem 0.8rem; }
-  .color-name { font-size:0.78rem; font-weight:600; color:var(--texto); }
-  .color-hex  { font-size:0.63rem; color:var(--gris-30); font-family:monospace; margin-top:0.08rem; }
-  .color-prog { font-size:0.67rem; color:var(--texto-suave); margin-top:0.1rem; }
-  .color-status {
-    display:inline-block; margin-top:0.35rem;
-    font-size:0.58rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-    padding:0.1rem 0.42rem; border-radius:3px;
-  }
-  .status-ok   { background:rgba(29,184,126,0.12); color:#138054; }
-  .status-pend { background:rgba(163,64,10,0.1);   color:var(--alerta); }
+body{
+font-family:"DM Sans",sans-serif;
+background:var(--gris-fondo);
+color:var(--gris);
+line-height:1.5;
+padding:40px;
+}
 
-  /* POSGRADOS */
-  .posgrados-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:1.1rem; margin-bottom:2.5rem; }
-  .posgrado-card {
-    background:var(--blanco); border-radius:12px; overflow:hidden;
-    box-shadow:0 1px 10px rgba(0,0,0,0.07); transition:transform 0.18s,box-shadow 0.18s;
-  }
-  .posgrado-card:hover { transform:translateY(-2px); box-shadow:0 6px 22px rgba(0,0,0,0.11); }
-  .card-bar  { height:5px; }
-  .card-body { padding:1.1rem 1.3rem; }
-  .card-num  { font-size:0.62rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; margin-bottom:0.22rem; opacity:0.6; }
-  .card-title { font-family:'DM Serif Display',serif; font-size:0.96rem; line-height:1.3; color:var(--texto); margin-bottom:0.9rem; }
-  .entregables { display:flex; flex-direction:column; gap:0.36rem; margin-bottom:0.85rem; }
-  .entregable {
-    display:flex; align-items:center; gap:0.55rem;
-    padding:0.4rem 0.58rem; border-radius:6px; background:var(--gris-fondo);
-    font-size:0.78rem; font-weight:500; cursor:pointer; user-select:none; transition:background 0.14s;
-  }
-  .entregable:hover { background:var(--gris-10); }
-  .entregable.done  { background:var(--gris-10); }
-  .entregable.done span { text-decoration:line-through; color:var(--gris-30); }
-  .check-box {
-    width:15px; height:15px; border-radius:3px; border:1.5px solid var(--gris-30); flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; transition:all 0.18s;
-    font-size:9px; font-weight:700; color:transparent;
-  }
-  .entregable.done .check-box { border-color:inherit; background:inherit; color:var(--blanco); }
-  .identidad-badge {
-    display:inline-block; padding:0.2rem 0.58rem; border-radius:3px;
-    font-size:0.64rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:0.5rem;
-  }
-  .badge-creativa  { background:rgba(92,31,122,0.1);   color:var(--violeta); }
-  .badge-color     { background:rgba(0,109,143,0.1);   color:var(--cian); }
-  .badge-melc      { background:rgba(92,31,122,0.1);   color:var(--violeta); }
-  .badge-pendiente { background:rgba(163,64,10,0.1);   color:var(--alerta); }
-  .card-nota { font-size:0.71rem; color:var(--texto-suave); line-height:1.45; margin-bottom:0.75rem; }
-  .card-footer { display:flex; align-items:center; justify-content:space-between; padding-top:0.7rem; border-top:1px solid var(--gris-10); }
-  .progress-wrap { display:flex; align-items:center; gap:0.45rem; }
-  .progress-bar-bg { width:74px; height:3px; background:var(--gris-10); border-radius:2px; overflow:hidden; }
-  .progress-bar-fill { height:100%; border-radius:2px; transition:width 0.35s ease; }
-  .progress-pct { font-size:0.67rem; font-weight:700; color:var(--gris-60); }
+h1{
+font-family:"DM Serif Display",serif;
+font-size:32px;
+margin-bottom:8px;
+}
 
-  /* SECCIONES AULA */
-  .secciones-section { margin-bottom:2.5rem; }
-  .aulas-tabs { display:flex; gap:0.4rem; margin-bottom:1.1rem; }
-  .tab-btn {
-    padding:0.43rem 1.1rem; border:1.5px solid var(--gris-10); border-radius:6px;
-    background:var(--blanco); font-family:'DM Sans',sans-serif;
-    font-size:0.8rem; font-weight:500; color:var(--texto-suave); cursor:pointer; transition:all 0.16s;
-  }
-  .tab-btn.active { background:var(--gris-90); border-color:var(--gris-90); color:var(--blanco); }
-  .tab-btn:hover:not(.active) { border-color:var(--gris-60); color:var(--texto); }
-  .secciones-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(195px,1fr)); gap:0.6rem; }
-  .seccion-item {
-    background:var(--blanco); border-radius:8px; padding:0.72rem 0.95rem;
-    font-size:0.79rem; box-shadow:0 1px 5px rgba(0,0,0,0.05);
-    border-left:3px solid var(--gris-30); color:var(--texto); transition:border-color 0.15s,transform 0.15s;
-  }
-  .seccion-item:hover { border-color:var(--cian); transform:translateX(2px); }
+h2{
+font-family:"DM Serif Display",serif;
+font-size:22px;
+margin:40px 0 12px;
+}
 
-  /* TIMELINE */
-  .timeline-section { margin-bottom:2.5rem; }
-  .timeline { position:relative; padding-left:1.8rem; }
-  .timeline::before { content:''; position:absolute; left:5px; top:10px; bottom:10px; width:1px; background:var(--gris-10); }
-  .tl-item {
-    position:relative; margin-bottom:0.82rem; background:var(--blanco);
-    border-radius:10px; padding:0.88rem 1.1rem; box-shadow:0 1px 6px rgba(0,0,0,0.05);
-  }
-  .tl-item::before {
-    content:''; position:absolute; left:-1.57rem; top:1.05rem;
-    width:8px; height:8px; border-radius:50%; background:var(--gris-30); border:2px solid var(--gris-fondo);
-  }
-  .tl-item.urgente { border-left:3px solid var(--alerta); }
-  .tl-item.urgente::before { background:var(--alerta); }
-  .tl-header { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.18rem; }
-  .tl-date {
-    font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gris-30);
-    border:none; background:transparent; font-family:'DM Sans',sans-serif;
-    cursor:text; outline:none; min-width:80px; max-width:200px;
-    border-bottom:1px dashed transparent; transition:border-color 0.15s; padding:0.1rem 0.2rem;
-  }
-  .tl-date:hover  { border-bottom-color:var(--gris-30); }
-  .tl-date:focus  { border-bottom-color:var(--cian); color:var(--texto); }
-  .tl-edit-hint { font-size:0.6rem; color:var(--gris-30); font-style:italic; opacity:0; transition:opacity 0.2s; }
-  .tl-item:hover .tl-edit-hint { opacity:1; }
-  .tl-title { font-size:0.86rem; font-weight:600; color:var(--texto); }
-  .tl-desc  { font-size:0.76rem; color:var(--texto-suave); margin-top:0.14rem; line-height:1.5; }
-  .tl-tag   { display:inline-block; font-size:0.6rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.1rem 0.4rem; border-radius:3px; margin-top:0.28rem; background:rgba(163,64,10,0.1); color:var(--alerta); }
+p{
+color:var(--gris-suave);
+font-size:14px;
+margin-bottom:20px;
+max-width:700px;
+}
 
-  /* PENDIENTES */
-  .pendientes-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:0.9rem; margin-bottom:2.5rem; }
-  .pendiente-card { background:var(--blanco); border-radius:10px; padding:1rem 1.2rem; box-shadow:0 1px 6px rgba(0,0,0,0.05); border-top:3px solid var(--gris-30); }
-  .pendiente-title { font-size:0.84rem; font-weight:600; color:var(--texto); margin-bottom:0.32rem; }
-  .pendiente-desc  { font-size:0.77rem; color:var(--texto-suave); line-height:1.5; }
-  .pendiente-quien { margin-top:0.55rem; font-size:0.67rem; font-weight:600; display:inline-block; background:var(--gris-fondo); padding:0.16rem 0.48rem; border-radius:3px; color:var(--gris-60); }
+.panel{
+background:var(--blanco);
+padding:28px;
+border-radius:10px;
+box-shadow:0 2px 12px rgba(0,0,0,0.06);
+margin-bottom:24px;
+}
 
-  /* RESPONSIVE */
-  @media (max-width:760px) {
-    header, main, .how-it-works { padding-left:1.2rem; padding-right:1.2rem; }
-    .how-it-works { margin-left:1.2rem; margin-right:1.2rem; }
-    .posgrados-grid { grid-template-columns:1fr; }
-    .header-top { flex-direction:column; }
-    .share-area { align-items:flex-start; }
-  }
+.color-grid{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
 
-  /* ANIMATIONS */
-  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-  .posgrado-card { animation:fadeUp 0.35s ease both; }
-  .posgrado-card:nth-child(1){animation-delay:.04s}
-  .posgrado-card:nth-child(2){animation-delay:.09s}
-  .posgrado-card:nth-child(3){animation-delay:.14s}
-  .posgrado-card:nth-child(4){animation-delay:.19s}
-  .posgrado-card:nth-child(5){animation-delay:.24s}
-  .posgrado-card:nth-child(6){animation-delay:.29s}
+.color{
+width:150px;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 1px 6px rgba(0,0,0,0.08);
+}
+
+.swatch{
+height:60px;
+}
+
+.color-info{
+padding:10px;
+font-size:12px;
+}
+
+.status{
+font-size:11px;
+font-weight:600;
+margin-top:4px;
+}
+
+.ok{color:#138054}
+.sug{color:#1a2f6e}
+.pen{color:#a3400a}
+
+.programas{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+gap:16px;
+}
+
+.programa{
+background:var(--blanco);
+padding:18px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+
+.programa h3{
+font-size:16px;
+margin-bottom:8px;
+}
+
+.programa small{
+color:var(--gris-suave);
+}
+
+.check{
+margin-top:10px;
+font-size:14px;
+}
+
+.secciones{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:10px;
+margin-top:10px;
+}
+
+.seccion{
+background:var(--blanco);
+padding:10px;
+border-left:3px solid var(--azul);
+font-size:13px;
+border-radius:6px;
+box-shadow:0 1px 5px rgba(0,0,0,0.05);
+}
+
+.timeline{
+margin-top:12px;
+}
+
+.tl{
+margin-bottom:12px;
+background:var(--blanco);
+padding:14px;
+border-radius:8px;
+box-shadow:0 1px 6px rgba(0,0,0,0.05);
+}
+
+.tl strong{
+display:block;
+font-size:13px;
+}
+
+.tl span{
+font-size:12px;
+color:var(--gris-suave);
+}
+
 </style>
 </head>
+
 <body>
 
-<header>
-  <div class="header-top">
-    <div>
-      <div class="header-label">UNAHUR · Campus 2026 · Diseño de interfaces</div>
-      <h1>Planificación de Posgrados</h1>
-      <p>Panel de seguimiento y diseño de aulas — Emi</p>
-    </div>
-    <div class="share-area">
-      <button class="btn-share" onclick="guardarEstado()">Guardar y descargar</button>
-      <div class="share-hint" id="shareHint">Archivo descargado con el progreso guardado. Listo para compartir.</div>
-    </div>
-  </div>
-</header>
+<h1>Diseño de Posgrados · UNAHUR 2026</h1>
+<p>
+Panel interno de seguimiento para el diseño de aulas en el campus.  
+Los diseños de interfaz se desarrollan en Figma y luego se implementan en Moodle.
+</p>
 
-<div class="how-it-works">
-  <div class="how-title">Cómo funciona este panel</div>
-  <p>
-    Diseñé este espacio para tener <strong>todo el proceso de producción de aulas en un solo lugar</strong>, sin depender de mails ni documentos separados.
-    Cada programa tiene su tarjeta con los entregables correspondientes: al hacer click sobre cada uno se registra el avance y la barra de progreso se actualiza en tiempo real.
-    Las <strong>secciones de estructura</strong> concentran los elementos que debe tener cada tipo de aula según el pedido, accesibles desde las pestañas.
-    En la <strong>hoja de ruta</strong> organicé los pasos del proceso con fechas orientativas que podés editar directamente haciendo click sobre ellas.
-    Los <strong>bloqueantes</strong> son los puntos que necesitan respuesta externa antes de avanzar.
-    Cuando quieras compartir el estado actualizado, usá el botón <strong>Guardar y descargar</strong>.
-  </p>
+<div class="panel">
+
+<h2>Paleta de color (estado actual)</h2>
+
+<div class="color-grid">
+
+<div class="color">
+<div class="swatch" style="background:#5c1f7a"></div>
+<div class="color-info">
+Violeta<br>
+INKVERSO · MELC
+<div class="status ok">confirmado</div>
+</div>
 </div>
 
-<main>
+<div class="color">
+<div class="swatch" style="background:#1a2f6e"></div>
+<div class="color-info">
+Azul petróleo
+<div class="status sug">sugerido</div>
+</div>
+</div>
 
-  <!-- PALETA -->
-  <div class="section-title">Paleta de colores</div>
-  <p class="section-sub">Sistema de color validado para los 6 programas · ninguno pisa los colores institucionales de los 4 institutos</p>
-  <div class="paleta-grid">
-    <div class="color-card">
-      <div class="color-swatch" style="background:#5c1f7a"></div>
-      <div class="color-info">
-        <div class="color-name">Violeta</div>
-        <div class="color-hex">#5c1f7a</div>
-        <div class="color-prog">Maestría Est. Literarios · INKVERSO</div>
-        <span class="color-status status-ok">Confirmado</span>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#2d2d2d"></div>
-      <div class="color-info">
-        <div class="color-name">Carbón</div>
-        <div class="color-hex">#2d2d2d</div>
-        <div class="color-prog">Filosofía Contemporánea</div>
-        <span class="color-status status-ok">Confirmado</span>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#f5a623"></div>
-      <div class="color-info">
-        <div class="color-name">Naranja Dorado</div>
-        <div class="color-hex">#f5a623</div>
-        <div class="color-prog">Estadística · Salud y Educación</div>
-        <span class="color-status status-ok">Confirmado</span>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#1db87e"></div>
-      <div class="color-info">
-        <div class="color-name">Verde Esmeralda</div>
-        <div class="color-hex">#1db87e</div>
-        <div class="color-prog">Bio-nanotecnología</div>
-        <span class="color-status status-ok">Confirmado</span>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#006d8f"></div>
-      <div class="color-info">
-        <div class="color-name">Cian Profundo</div>
-        <div class="color-hex">#006d8f</div>
-        <div class="color-prog">IA aplicada a Biotecnología</div>
-        <span class="color-status status-ok">Confirmado</span>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#1a2f6e"></div>
-      <div class="color-info">
-        <div class="color-name">Azul Marino</div>
-        <div class="color-hex">#1a2f6e</div>
-        <div class="color-prog">Matemática Avanzada</div>
-        <span class="color-status status-ok">Confirmado</span>
-      </div>
-    </div>
-  </div>
+<div class="color">
+<div class="swatch" style="background:#1db87e"></div>
+<div class="color-info">
+Verde institucional
+<div class="status sug">sugerido</div>
+</div>
+</div>
 
-  <!-- POSGRADOS -->
-  <div class="section-title">Los 6 programas</div>
-  <p class="section-sub">Hacé click sobre cada entregable para registrar el avance</p>
-  <div class="posgrados-grid" id="posgradosGrid"></div>
+<div class="color">
+<div class="swatch" style="background:#52b8e3"></div>
+<div class="color-info">
+Turquesa institucional
+<div class="status sug">sugerido</div>
+</div>
+</div>
 
-  <!-- ESTRUCTURA AULAS -->
-  <div class="secciones-section">
-    <div class="section-title">Estructura de aulas</div>
-    <p class="section-sub">Elementos requeridos según el tipo de aula</p>
-    <div class="aulas-tabs">
-      <button class="tab-btn active" onclick="showAula('cartelera',this)">Aula Cartelera</button>
-      <button class="tab-btn" onclick="showAula('seminario',this)">Aula Modelo de Seminario</button>
-    </div>
-    <div class="secciones-list" id="aulaSecciones"></div>
-  </div>
+<div class="color">
+<div class="swatch" style="background:#b0afae"></div>
+<div class="color-info">
+Color adicional 1
+<div class="status pen">pendiente</div>
+</div>
+</div>
 
-  <!-- TIMELINE -->
-  <div class="timeline-section">
-    <div class="section-title">Hoja de ruta</div>
-    <p class="section-sub">Fechas orientativas · hacé click sobre cualquiera para editarla</p>
-    <div class="timeline" id="timeline"></div>
-  </div>
+<div class="color">
+<div class="swatch" style="background:#6b6560"></div>
+<div class="color-info">
+Color adicional 2
+<div class="status pen">pendiente</div>
+</div>
+</div>
 
-  <!-- PENDIENTES -->
-  <div class="section-title">Bloqueantes</div>
-  <p class="section-sub">Puntos que requieren confirmación externa antes de avanzar</p>
-  <div class="pendientes-grid" id="pendientesGrid"></div>
+</div>
 
-</main>
+</div>
 
-<script id="savedState" type="application/json"></script>
-<script>
-const posgrados = [
-  { num:"01", color:"#1a2f6e",
-    title:"Especialización en Matemática Avanzada",
-    badge:"badge-color", badgeLabel:"Pleno de color",
-    nota:"Sistema gráfico del curso 2025 disponible como referencia.",
-    entregables:["Aula cartelera","Aula modelo seminario"] },
-  { num:"02", color:"#2d2d2d",
-    title:"Especialización en Problemas Filosóficos Contemporáneos",
-    badge:"badge-creativa", badgeLabel:"Identidad creativa",
-    nota:"Reunión con equipo referente mañana viernes — definir dirección visual. A continuación empiezo a pensar el aula cartelera.",
-    entregables:["Aula cartelera","Aula modelo seminario"] },
-  { num:"03", color:"#f5a623",
-    title:"Especialización en Estadística Aplicada en Salud y Educación",
-    badge:"badge-creativa", badgeLabel:"Identidad creativa",
-    nota:"Concepto: la estadística como puente y lenguaje común. Estilo abstracto, líneas y nodos.",
-    entregables:["Aula cartelera","Aula modelo seminario"] },
-  { num:"04", color:"#1db87e",
-    title:"Especialización en Bio-nanotecnología",
-    badge:"badge-color", badgeLabel:"Pleno de color",
-    nota:"Sistema gráfico del curso 2025 disponible como referencia.",
-    entregables:["Aula cartelera","Aula modelo seminario"] },
-  { num:"05", color:"#006d8f",
-    title:"Especialización en IA aplicada a Biotecnología",
-    badge:"badge-pendiente", badgeLabel:"Categoría pendiente",
-    nota:"La categoría en el campus aún no fue creada por el equipo técnico.",
-    entregables:["Aula cartelera","Aula modelo seminario"] },
-  { num:"M1", color:"#5c1f7a",
-    title:"Maestría en Estudios Literarios Contemporáneos",
-    badge:"badge-melc", badgeLabel:"INKVERSO · Violeta",
-    nota:"Identidad ya validada. Avanzar con el aula base de seminario en la categoría 90.",
-    entregables:["Aula modelo seminario — PRIORITARIO"] }
-];
+<div class="panel">
 
-const aulas = {
-  cartelera:["Encabezado del Posgrado","Texto de bienvenida","Resoluciones de la Carrera","Cronograma general del Posgrado","Aulas de cursada","Miniaturas de accesos directos a seminarios","Espacio de Consultas","Espacio de Avisos"],
-  seminario:["Pestaña Presentación","Pestaña Unidad 1","Identidad visual del posgrado","Recursos descargables","Actividades y entregas","Foro de consultas"]
-};
+<h2>Posgrados 2026</h2>
 
-const timelineDefault = [
-  { date:"Viernes 7 mar",  title:"Reunión — Filosofía Contemporánea",       desc:"Definir dirección visual con el equipo referente. A continuación empiezo a pensar el aula cartelera.", urgente:true },
-  { date:"A coordinar",    title:"Aula seminario MELC — identidad violeta",  desc:"Identidad INKVERSO ya validada. Se puede arrancar en cuanto haya tiempo disponible.", urgente:false },
-  { date:"A coordinar",    title:"Paleta final para los 5 posgrados",        desc:"Paleta validada. Listo para aplicar a los combos.", urgente:false },
-  { date:"A coordinar",    title:"5 combos cartelera + seminario",           desc:"Una vez confirmadas las identidades creativas de Filosofía y Estadística.", urgente:false },
-  { date:"A coordinar",    title:"Entrega del paquete completo",             desc:"6 aulas cartelera + 6 aulas modelo de seminario.", urgente:false }
-];
+<div class="programas">
 
-const pendientes = [
-  { title:"Categoría campus — IA + Biotecnología",  desc:"El equipo técnico del campus aún no creó la categoría para el quinto posgrado.",           quien:"Equipo campus" },
-  { title:"Identidad — Filosofía Contemporánea",    desc:"La dirección visual se define en la reunión de mañana viernes.",                            quien:"Reunión viernes" },
-  { title:"Validar concepto — Estadística",         desc:"Daniela Parada compartió el brief. Falta confirmación del equipo antes de producir.",       quien:"Fer + Daniela Parada" }
-];
+<div class="programa">
+<h3>Programa · Especialización en Matemática Avanzada</h3>
+<small>Referencia gráfica del curso 2025 disponible.</small>
 
-let states  = {};
-let tlDates = {};
+<div class="check">
+☐ Aula cartelera<br>
+☐ Aula modelo de seminario
+</div>
+</div>
 
-function loadState() {
-  const el = document.getElementById('savedState');
-  if (el && el.textContent.trim()) {
-    try { const s = JSON.parse(el.textContent); states = s.checks||{}; tlDates = s.tlDates||{}; return; } catch(e){}
-  }
-  posgrados.forEach((_,i) => { states[i] = posgrados[i].entregables.map(()=>false); });
-}
+<div class="programa">
+<h3>Programa · Problemas Filosóficos Contemporáneos</h3>
+<small>Identidad a definir con equipo referente.</small>
 
-function renderPosgrados() {
-  document.getElementById('posgradosGrid').innerHTML = posgrados.map((p,pi) => {
-    if (!states[pi]) states[pi] = p.entregables.map(()=>false);
-    const done = states[pi].filter(Boolean).length;
-    const pct  = Math.round((done/p.entregables.length)*100);
-    const rows = p.entregables.map((e,ei) => `
-      <div class="entregable ${states[pi][ei]?'done':''}" onclick="toggleCheck(${pi},${ei})" style="color:${p.color}">
-        <div class="check-box">${states[pi][ei]?'&#10003;':''}</div>
-        <span>${e}</span>
-      </div>`).join('');
-    return `
-      <div class="posgrado-card">
-        <div class="card-bar" style="background:${p.color}"></div>
-        <div class="card-body">
-          <div class="card-num" style="color:${p.color}">${p.num}</div>
-          <div class="card-title">${p.title}</div>
-          <div class="entregables">${rows}</div>
-          <span class="identidad-badge ${p.badge}">${p.badgeLabel}</span>
-          <div class="card-nota">${p.nota}</div>
-          <div class="card-footer">
-            <div class="progress-wrap">
-              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%;background:${p.color}"></div></div>
-              <span class="progress-pct">${pct}%</span>
-            </div>
-            <span style="font-size:0.7rem;color:var(--gris-30)">${done}/${p.entregables.length} listos</span>
-          </div>
-        </div>
-      </div>`;
-  }).join('');
-}
+<div class="check">
+☐ Aula cartelera<br>
+☐ Aula modelo de seminario
+</div>
+</div>
 
-function toggleCheck(pi,ei) { states[pi][ei]=!states[pi][ei]; renderPosgrados(); }
+<div class="programa">
+<h3>Programa · Estadística Aplicada en Salud y Educación</h3>
+<small>Concepto propuesto: estadística como lenguaje común.</small>
 
-function showAula(type,btn) {
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('aulaSecciones').innerHTML = aulas[type].map(s=>`<div class="seccion-item">${s}</div>`).join('');
-}
+<div class="check">
+☐ Aula cartelera<br>
+☐ Aula modelo de seminario
+</div>
+</div>
 
-function renderTimeline() {
-  document.getElementById('timeline').innerHTML = timelineDefault.map((t,i)=>{
-    const val = tlDates[i]!==undefined ? tlDates[i] : t.date;
-    return `
-      <div class="tl-item ${t.urgente?'urgente':''}">
-        <div class="tl-header">
-          <input class="tl-date" value="${val}" title="Editá la fecha" onchange="updateDate(${i},this.value)" onblur="updateDate(${i},this.value)"/>
-          <span class="tl-edit-hint">editable</span>
-        </div>
-        <div class="tl-title">${t.title}</div>
-        <div class="tl-desc">${t.desc}</div>
-        ${t.urgente?'<span class="tl-tag">Esta semana</span>':''}
-      </div>`;
-  }).join('');
-}
+<div class="programa">
+<h3>Programa · Bio-nanotecnología</h3>
+<small>Sistema gráfico del curso anterior disponible.</small>
 
-function updateDate(i,val) { tlDates[i]=val; }
+<div class="check">
+☐ Aula cartelera<br>
+☐ Aula modelo de seminario
+</div>
+</div>
 
-function renderPendientes() {
-  document.getElementById('pendientesGrid').innerHTML = pendientes.map(p=>`
-    <div class="pendiente-card">
-      <div class="pendiente-title">${p.title}</div>
-      <div class="pendiente-desc">${p.desc}</div>
-      <div class="pendiente-quien">${p.quien}</div>
-    </div>`).join('');
-}
+<div class="programa">
+<h3>Programa · IA aplicada a la Biotecnología</h3>
+<small>Categoría del campus aún no creada.</small>
 
-function guardarEstado() {
-  document.querySelectorAll('.tl-date').forEach((inp,i)=>{ tlDates[i]=inp.value; });
-  const payload = JSON.stringify({checks:states, tlDates});
-  let html = document.documentElement.outerHTML;
-  html = html.replace(/<script id="savedState" type="application\/json">[\s\S]*?<\/script>/,
-    `<script id="savedState" type="application/json">${payload}<\/script>`);
-  const blob = new Blob([html],{type:'text/html;charset=utf-8'});
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href=url; a.download='index.html'; a.click();
-  URL.revokeObjectURL(url);
-  const btn = document.querySelector('.btn-share');
-  btn.textContent='Descargado'; btn.classList.add('saved');
-  document.getElementById('shareHint').classList.add('visible');
-  setTimeout(()=>{ btn.textContent='Guardar y descargar'; btn.classList.remove('saved'); },3000);
-}
+<div class="check">
+☐ Aula cartelera<br>
+☐ Aula modelo de seminario
+</div>
+</div>
 
-loadState();
-renderPosgrados();
-showAula('cartelera',document.querySelector('.tab-btn.active'));
-renderTimeline();
-renderPendientes();
-</script>
+<div class="programa">
+<h3>Maestría · Estudios Literarios Contemporáneos</h3>
+<small>Identidad INKVERSO ya validada.</small>
+
+<div class="check">
+☐ Aula modelo de seminario
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>Estructura Aula Cartelera</h2>
+
+<div class="secciones">
+
+<div class="seccion">Encabezado del Posgrado</div>
+<div class="seccion">Texto de bienvenida</div>
+<div class="seccion">Resoluciones de la carrera</div>
+<div class="seccion">Cronograma general</div>
+<div class="seccion">Aulas de cursada</div>
+<div class="seccion">Miniaturas de seminarios</div>
+<div class="seccion">Espacio de consultas</div>
+<div class="seccion">Espacio de avisos</div>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>Hoja de ruta</h2>
+
+<div class="timeline">
+
+<div class="tl">
+<strong>Reunión con equipo de Filosofía</strong>
+<span>Definir identidad visual.</span>
+</div>
+
+<div class="tl">
+<strong>Diseño aula base MELC</strong>
+<span>Usar identidad violeta de INKVERSO.</span>
+</div>
+
+<div class="tl">
+<strong>Diseño templates de color</strong>
+<span>Generar 5 combos cartelera + seminario.</span>
+</div>
+
+<div class="tl">
+<strong>Implementación en campus</strong>
+<span>Asociar aulas a cada categoría.</span>
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>
