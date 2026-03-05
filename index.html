@@ -3,273 +3,894 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Seguimiento diseño Posgrados · UNAHUR 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
-
+<title>Posgrados UNAHUR · Seguimiento de diseño 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 
-body{
-font-family:'DM Sans',sans-serif;
-background:#f5f5f4;
-color:#1c1c1c;
-margin:40px;
+:root {
+  --bg: #f2f0eb;
+  --surface: #faf9f7;
+  --border: #e2ddd6;
+  --text: #1a1814;
+  --muted: #8a857c;
+  --header-bg: #2a2825;
+  --header-text: #f2f0eb;
+
+  --ok-bg: #e8f5ef;        --ok-fg: #0f6640;
+  --conversar-bg: #fff3e8; --conversar-fg: #a3400a;
+  --definir-bg: #eaeffc;   --definir-fg: #1a2f6e;
+  --pendiente-bg: #eeebe6; --pendiente-fg: #6b6560;
 }
 
-h1{
-font-family:'DM Serif Display',serif;
-font-size:32px;
-margin-bottom:8px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
 
-h2{
-font-family:'DM Serif Display',serif;
-margin-top:40px;
-margin-bottom:10px;
+/* HEADER */
+header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 52px 56px 46px;
 }
 
-p{
-color:#6b6560;
-font-size:14px;
-max-width:700px;
+.header-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(242,240,235,.35);
+  margin-bottom: 18px;
 }
 
-.panel{
-background:white;
-padding:26px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
-margin-bottom:28px;
+header h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--header-text);
 }
 
-.colors{
-display:flex;
-flex-wrap:wrap;
-gap:16px;
-margin-top:12px;
+header h1 span {
+  color: rgba(242,240,235,.32);
+  font-weight: 400;
 }
 
-.color{
-width:190px;
-border-radius:8px;
-overflow:hidden;
-box-shadow:0 2px 8px rgba(0,0,0,0.08);
+.header-rule {
+  width: 28px;
+  height: 1px;
+  background: rgba(242,240,235,.16);
+  margin: 24px 0;
 }
 
-.swatch{
-height:60px;
+.header-meta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.info{
-padding:12px;
-font-size:13px;
+.meta-item {
+  font-size: 11px;
+  color: rgba(242,240,235,.38);
 }
 
-.status{
-margin-top:6px;
-font-size:11px;
-font-weight:600;
-letter-spacing:.03em;
+.meta-item strong {
+  display: block;
+  color: rgba(242,240,235,.78);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 3px;
 }
 
-.ok{color:#138054}
-.creativo{color:#a3400a}
-.definir{color:#1a2f6e}
-
-.programs{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-gap:16px;
+.deadline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(242,240,235,.13);
+  color: rgba(242,240,235,.48);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-top: 26px;
 }
 
-.program{
-background:white;
-padding:18px;
-border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.07);
+/* LAYOUT */
+main {
+  padding: 48px 56px 80px;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-.program h3{
-font-size:15px;
-margin-bottom:4px;
+section { margin-bottom: 52px; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
 }
 
-.program small{
-color:#6b6560;
+.section-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--muted);
 }
 
-.list{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:10px;
-margin-top:14px;
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -.01em;
 }
 
-.item{
-background:white;
-padding:10px;
-border-left:4px solid #1a2f6e;
-border-radius:6px;
-box-shadow:0 1px 5px rgba(0,0,0,0.06);
-font-size:13px;
+.section-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 22px;
+  max-width: 580px;
+  line-height: 1.65;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 0 52px;
+}
+
+/* TAGS */
+.tag {
+  display: inline-block;
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.tag.ok        { background: var(--ok-bg);        color: var(--ok-fg); }
+.tag.conversar { background: var(--conversar-bg);  color: var(--conversar-fg); }
+.tag.definir   { background: var(--definir-bg);    color: var(--definir-fg); }
+.tag.pendiente { background: var(--pendiente-bg);  color: var(--pendiente-fg); }
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tl-step {
+  flex: 1;
+  padding: 24px 20px;
+  border-right: 1px solid var(--border);
+}
+.tl-step:last-child { border-right: none; }
+
+.tl-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.tl-icon.done     { background: var(--ok-bg); }
+.tl-icon.active   { background: var(--definir-bg); }
+.tl-icon.upcoming { background: var(--pendiente-bg); }
+
+.tl-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.tl-date { font-size: 11px; color: var(--muted); }
+
+/* COLORS */
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.color-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.color-swatch { height: 64px; position: relative; }
+
+.hex-label {
+  position: absolute;
+  bottom: 7px; right: 9px;
+  font-size: 10px;
+  color: rgba(255,255,255,.48);
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+.color-info { padding: 13px 14px; }
+
+.color-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.color-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 9px;
+}
+
+/* PROGRAM CARDS */
+.programs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 14px;
+}
+
+.program-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow .2s;
+}
+.program-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,.07); }
+
+.card-stripe { height: 5px; }
+.card-body { padding: 20px 22px 22px; }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.card-body h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  flex: 1;
+  letter-spacing: -.01em;
+}
+
+.card-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.card-pills {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.pill {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pill.done {
+  background: var(--ok-bg);
+  border-color: #bde7d0;
+  color: var(--ok-fg);
+}
+
+.campus-row {
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.campus-badge {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.campus-badge.creada    { background: var(--ok-bg);        color: var(--ok-fg); }
+.campus-badge.pendiente { background: var(--conversar-bg); color: var(--conversar-fg); }
+
+/* INFO BOXES */
+.info-box {
+  background: var(--definir-bg);
+  border-left: 3px solid #1a2f6e;
+  border-radius: 0 8px 8px 0;
+  padding: 13px 18px;
+  font-size: 12.5px;
+  color: var(--definir-fg);
+  line-height: 1.65;
+  margin-top: 14px;
+}
+
+.ok-box {
+  background: var(--ok-bg);
+  border-left: 3px solid var(--ok-fg);
+  border-radius: 0 8px 8px 0;
+  padding: 13px 18px;
+  font-size: 12.5px;
+  color: var(--ok-fg);
+  line-height: 1.65;
+  margin-top: 10px;
+}
+
+/* ESTRUCTURA */
+.structure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.struct-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.struct-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.struct-items { display: flex; flex-direction: column; gap: 5px; }
+
+.struct-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 13px;
+  padding: 9px 12px;
+  background: var(--bg);
+  border-radius: 7px;
+}
+
+.struct-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  width: 18px;
+  flex-shrink: 0;
+}
+
+/* AULA CARTELERA INICIO */
+.inicio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.inicio-header {
+  background: var(--header-bg);
+  padding: 26px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.inicio-icon {
+  width: 40px; height: 40px;
+  border-radius: 9px;
+  background: rgba(242,240,235,.07);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.inicio-header-text h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--header-text);
+  letter-spacing: -.01em;
+  margin-bottom: 3px;
+}
+
+.inicio-header-text p {
+  font-size: 11.5px;
+  color: rgba(242,240,235,.38);
+}
+
+.inicio-body { padding: 28px 32px; }
+
+.inicio-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.inicio-item {
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 14px 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg);
+}
+
+.inicio-item-icon {
+  width: 30px; height: 30px;
+  border-radius: 7px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.inicio-item-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.inicio-item-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  header, main { padding-left: 22px; padding-right: 22px; }
+  .structure-grid { grid-template-columns: 1fr; }
+  .timeline { flex-direction: column; }
+  .tl-step { border-right: none; border-bottom: 1px solid var(--border); }
 }
 
 </style>
 </head>
-
 <body>
 
-<h1>Diseño de Posgrados · UNAHUR 2026</h1>
+<header>
+  <div class="header-label">UNAHUR · Campus Virtual · 2026</div>
+  <h1>Diseño de Posgrados <span>/ Seguimiento</span></h1>
+  <div class="header-rule"></div>
+  <div class="header-meta">
+    <div class="meta-item">Diseño
+      <strong>Emi</strong>
+    </div>
+    <div class="meta-item">Flujo
+      <strong>Figma → Moodle</strong>
+    </div>
+    <div class="meta-item">Posgrados activos
+      <strong>5 nuevos + MELC</strong>
+    </div>
+  </div>
+  <div class="deadline-pill">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Entrega ideal: 11–12 de marzo
+  </div>
+</header>
 
-<p>
-Panel de seguimiento del diseño de aulas para los posgrados del campus.
-Las interfaces se diseñan en Figma y luego se implementan en Moodle.
-</p>
+<main>
 
+  <!-- 01 ESTADO GENERAL -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Estado general del proceso</span>
+    </div>
+    <p class="section-sub">Semana del 4 de marzo · avance en paralelo por posgrado.</p>
 
-<div class="panel">
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-icon done">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0f6640" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="tl-label">Brief recibido</div>
+        <div class="tl-date">4 mar</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-icon active">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </div>
+        <div class="tl-label">Paleta definida</div>
+        <div class="tl-date">En curso</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-icon active">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="tl-label">Aula cartelera base</div>
+        <div class="tl-date">Iniciando</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-icon upcoming">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6560" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="tl-label">Aula seminario base</div>
+        <div class="tl-date">Siguiente</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-icon upcoming">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b6560" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="tl-label">Entrega completa</div>
+        <div class="tl-date">11–12 mar</div>
+      </div>
+    </div>
+  </section>
 
-<h2>Paleta de identidad (según mails)</h2>
+  <div class="divider"></div>
 
-<div class="colors">
+  <!-- 02 PALETA -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Paleta de identidad</span>
+    </div>
+    <p class="section-sub">Cada posgrado tiene un color principal. La identidad visual es compartida entre el aula cartelera y las aulas de seminarios del mismo programa.</p>
 
-<div class="color">
-<div class="swatch" style="background:#5c1f7a"></div>
-<div class="info">
-Violeta<br>
-Maestría Estudios Literarios · INKVERSO
-<div class="status ok">VALIDADO OK</div>
-</div>
-</div>
+    <div class="colors-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#5c1f7a"><span class="hex-label">#5c1f7a</span></div>
+        <div class="color-info">
+          <div class="color-name">Violeta</div>
+          <div class="color-desc">Maestría en Estudios Literarios · INKVERSO</div>
+          <span class="tag ok">VALIDADO</span>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1a2f6e"><span class="hex-label">#1a2f6e</span></div>
+        <div class="color-info">
+          <div class="color-name">Azul petróleo</div>
+          <div class="color-desc">Sistema general de posgrado</div>
+          <span class="tag definir">PLENO DE COLOR</span>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1db87e"><span class="hex-label">#1db87e</span></div>
+        <div class="color-info">
+          <div class="color-name">Verde</div>
+          <div class="color-desc">Institucional Unahur</div>
+          <span class="tag definir">PLENO DE COLOR</span>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#52b8e3"><span class="hex-label">#52b8e3</span></div>
+        <div class="color-info">
+          <div class="color-name">Turquesa</div>
+          <div class="color-desc">Institucional Unahur</div>
+          <span class="tag definir">PLENO DE COLOR</span>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#f2c94c"><span class="hex-label">#f2c94c</span></div>
+        <div class="color-info">
+          <div class="color-name">Amarillo</div>
+          <div class="color-desc">Propuesta para Filosofía o Estadística</div>
+          <span class="tag conversar">A CONVERSAR</span>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#e4e0d8;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b0aba3" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Por definir</div>
+          <div class="color-desc">1 o 2 colores adicionales para completar la paleta</div>
+          <span class="tag pendiente">PENDIENTE</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="color">
-<div class="swatch" style="background:#1a2f6e"></div>
-<div class="info">
-Azul petróleo<br>
-Posgrado general
-<div class="status definir">PLENO DE COLOR</div>
-</div>
-</div>
+  <div class="divider"></div>
 
-<div class="color">
-<div class="swatch" style="background:#1db87e"></div>
-<div class="info">
-Verde institucional
-<div class="status definir">PLENO DE COLOR</div>
-</div>
-</div>
+  <!-- 03 PROGRAMAS -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Programas de posgrado</span>
+    </div>
+    <p class="section-sub">Cada programa requiere un combo: <strong>aula cartelera + aula modelo de seminario</strong>. La identidad visual es compartida al interior de cada posgrado.</p>
 
-<div class="color">
-<div class="swatch" style="background:#52b8e3"></div>
-<div class="info">
-Turquesa institucional
-<div class="status definir">PLENO DE COLOR</div>
-</div>
-</div>
+    <div class="programs">
 
-<div class="color">
-<div class="swatch" style="background:#5b3a29"></div>
-<div class="info">
-Marrón profundo<br>
-Filosofía contemporánea
-<div class="status creativo">CREATIVO · A CONVERSAR</div>
-</div>
-</div>
+      <div class="program-card">
+        <div class="card-stripe" style="background:#5c1f7a"></div>
+        <div class="card-body">
+          <div class="card-top"><h3>Maestría en Estudios Literarios Contemporáneos</h3><span class="tag ok">VALIDADO</span></div>
+          <p class="card-note">Identidad INKVERSO validada en violeta. <strong>Prioridad inmediata:</strong> desarrollo del aula base de seminario.</p>
+          <div class="card-pills">
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Identidad</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+          </div>
+          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+        </div>
+      </div>
 
-<div class="color">
-<div class="swatch" style="background:#d9c7a3"></div>
-<div class="info">
-Arena claro
-<div class="status definir">POR DEFINIR</div>
-</div>
-</div>
+      <div class="program-card">
+        <div class="card-stripe" style="background:#1a2f6e"></div>
+        <div class="card-body">
+          <div class="card-top"><h3>Especialización en Matemática Avanzada</h3><span class="tag definir">EN DEFINICIÓN</span></div>
+          <p class="card-note">Sistema gráfico de referencia disponible del año anterior. Se avanza con pleno de color.</p>
+          <div class="card-pills">
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+          </div>
+          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+        </div>
+      </div>
 
-</div>
+      <div class="program-card">
+        <div class="card-stripe" style="background:#f2c94c"></div>
+        <div class="card-body">
+          <div class="card-top"><h3>Especialización en Problemas Filosóficos Contemporáneos</h3><span class="tag conversar">A CONVERSAR</span></div>
+          <p class="card-note">Reunión con el equipo referente para definir la identidad visual. Sistema gráfico previo disponible como referencia.</p>
+          <div class="card-pills">
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+          </div>
+          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+        </div>
+      </div>
 
-</div>
+      <div class="program-card">
+        <div class="card-stripe" style="background:#1db87e"></div>
+        <div class="card-body">
+          <div class="card-top"><h3>Especialización en Estadística Aplicada en Salud y Educación</h3><span class="tag conversar">A CONVERSAR</span></div>
+          <p class="card-note">La dirección propone una identidad creativa basada en el concepto <em>"La estadística como puente y lenguaje común"</em>. Estilo abstracto, líneas limpias, elementos de datos y disciplinas.</p>
+          <div class="card-pills">
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad creativa</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+          </div>
+          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+        </div>
+      </div>
 
+      <div class="program-card">
+        <div class="card-stripe" style="background:#52b8e3"></div>
+        <div class="card-body">
+          <div class="card-top"><h3>Especialización en Bio-nanotecnología</h3><span class="tag definir">EN DEFINICIÓN</span></div>
+          <p class="card-note">Sistema gráfico previo disponible. Se avanza con pleno de color mientras se valida la identidad con el equipo referente.</p>
+          <div class="card-pills">
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+          </div>
+          <div class="campus-row">Categoría campus: <span class="campus-badge creada">CREADA</span></div>
+        </div>
+      </div>
 
+      <div class="program-card">
+        <div class="card-stripe" style="background:#c8c4bc"></div>
+        <div class="card-body">
+          <div class="card-top"><h3>Especialización en IA aplicada a la Biotecnología</h3><span class="tag pendiente">PENDIENTE</span></div>
+          <p class="card-note">Categoría en campus pendiente de creación. Se integrará al flujo de trabajo una vez disponible.</p>
+          <div class="card-pills">
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Identidad</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+          </div>
+          <div class="campus-row">Categoría campus: <span class="campus-badge pendiente">PENDIENTE DE CREAR</span></div>
+        </div>
+      </div>
 
-<div class="panel">
+    </div>
 
-<h2>Programas de posgrado</h2>
+    <div class="info-box"><strong>Estrategia de trabajo:</strong> Las aulas base se desarrollan en la categoría general de Posgrado y luego se asocian a cada categoría específica. Esto permite avanzar en paralelo sin depender de que todas las categorías estén disponibles en campus.</div>
+    <div class="ok-box"><strong>Primer paso:</strong> Aula base de seminario para la Maestría en Estudios Literarios Contemporáneos con identidad INKVERSO en violeta.</div>
+  </section>
 
-<div class="programs">
+  <div class="divider"></div>
 
-<div class="program">
-<h3>Especialización en Matemática Avanzada</h3>
-<small>Referencia gráfica del curso anterior disponible.</small>
-</div>
+  <!-- 04 ESTRUCTURA -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Estructura de las aulas</span>
+    </div>
+    <p class="section-sub">Las secciones son comunes a todos los posgrados. La identidad visual varía por programa.</p>
 
-<div class="program">
-<h3>Especialización en Problemas Filosóficos Contemporáneos</h3>
-<small>Identidad visual creativa a conversar con el equipo referente.</small>
-</div>
+    <div class="structure-grid">
 
-<div class="program">
-<h3>Especialización en Estadística Aplicada en Salud y Educación</h3>
-<small>Concepto propuesto: estadística como lenguaje común.</small>
-</div>
+      <div class="struct-card">
+        <div class="struct-card-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Aula Cartelera
+        </div>
+        <div class="struct-items">
+          <div class="struct-item"><span class="struct-num">01</span>Encabezado del Posgrado</div>
+          <div class="struct-item"><span class="struct-num">02</span>Texto de bienvenida</div>
+          <div class="struct-item"><span class="struct-num">03</span>Resoluciones de la Carrera</div>
+          <div class="struct-item"><span class="struct-num">04</span>Cronograma general del Posgrado</div>
+          <div class="struct-item"><span class="struct-num">05</span>Aulas de cursada</div>
+          <div class="struct-item"><span class="struct-num">06</span>Miniaturas de accesos a seminarios</div>
+          <div class="struct-item"><span class="struct-num">07</span>Espacio de Consultas</div>
+          <div class="struct-item"><span class="struct-num">08</span>Espacio de Avisos</div>
+        </div>
+      </div>
 
-<div class="program">
-<h3>Especialización en Bio-nanotecnología</h3>
-<small>Sistema gráfico previo disponible.</small>
-</div>
+      <div class="struct-card">
+        <div class="struct-card-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Aula Base de Seminario
+        </div>
+        <div class="struct-items">
+          <div class="struct-item"><span class="struct-num">01</span>Pestaña Presentación</div>
+          <div class="struct-item"><span class="struct-num">02</span>Identidad visual del posgrado</div>
+          <div class="struct-item"><span class="struct-num">03</span>Materiales del seminario</div>
+          <div class="struct-item"><span class="struct-num">04</span>Actividades</div>
+          <div class="struct-item"><span class="struct-num">05</span>Foro de consultas</div>
+          <div class="struct-item"><span class="struct-num">06</span>Unidad 1</div>
+        </div>
+      </div>
 
-<div class="program">
-<h3>Especialización en IA aplicada a la Biotecnología</h3>
-<small>Categoría del campus pendiente.</small>
-</div>
+    </div>
+  </section>
 
-<div class="program">
-<h3>Maestría en Estudios Literarios Contemporáneos</h3>
-<small>Identidad INKVERSO validada.</small>
-</div>
+  <div class="divider"></div>
 
-</div>
+  <!-- 05 INICIO AULA CARTELERA -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Inicio de trabajo · Aula Cartelera</span>
+    </div>
+    <p class="section-sub">Punto de partida del desarrollo. Se diseña el aula cartelera base que luego se adapta a la identidad de cada posgrado.</p>
 
-</div>
+    <div class="inicio-card">
+      <div class="inicio-header">
+        <div class="inicio-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(242,240,235,.6)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="inicio-header-text">
+          <h3>Aula Cartelera · Base</h3>
+          <p>Estructura común · 8 secciones fijas · identidad variable por posgrado</p>
+        </div>
+      </div>
 
+      <div class="inicio-body">
+        <div class="inicio-sections">
 
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="5" rx="1"/><path d="M3 11h18M3 16h10"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Encabezado</div>
+              <div class="inicio-item-sub">Identidad visual · nombre · institución</div>
+            </div>
+          </div>
 
-<div class="panel">
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Texto de bienvenida</div>
+              <div class="inicio-item-sub">Presentación del programa</div>
+            </div>
+          </div>
 
-<h2>Estructura Aula Cartelera</h2>
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Resoluciones</div>
+              <div class="inicio-item-sub">Documentación oficial de la carrera</div>
+            </div>
+          </div>
 
-<div class="list">
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Cronograma</div>
+              <div class="inicio-item-sub">Planificación general del posgrado</div>
+            </div>
+          </div>
 
-<div class="item">Encabezado del Posgrado</div>
-<div class="item">Texto de bienvenida</div>
-<div class="item">Resoluciones de la Carrera</div>
-<div class="item">Cronograma general del Posgrado</div>
-<div class="item">Aulas de cursada</div>
-<div class="item">Miniaturas de accesos directos a seminarios</div>
-<div class="item">Espacio de Consultas</div>
-<div class="item">Espacio de Avisos</div>
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Aulas de cursada</div>
+              <div class="inicio-item-sub">Accesos al espacio de cursada</div>
+            </div>
+          </div>
 
-</div>
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Miniaturas de seminarios</div>
+              <div class="inicio-item-sub">Accesos directos a cada aula</div>
+            </div>
+          </div>
 
-</div>
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Espacio de Consultas</div>
+              <div class="inicio-item-sub">Canal de comunicación directa</div>
+            </div>
+          </div>
 
+          <div class="inicio-item">
+            <div class="inicio-item-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <div>
+              <div class="inicio-item-label">Espacio de Avisos</div>
+              <div class="inicio-item-sub">Novedades y comunicados</div>
+            </div>
+          </div>
 
+        </div>
 
-<div class="panel">
+        <div class="info-box">
+          <strong>Próximo paso:</strong> Diseño en Figma del aula cartelera base con pleno de color. Una vez aprobada la estructura, se replica y adapta para cada posgrado con su identidad correspondiente.
+        </div>
 
-<h2>Estructura Aula Base de Seminario</h2>
+      </div>
+    </div>
+  </section>
 
-<div class="list">
-
-<div class="item">Pestaña Presentación</div>
-<div class="item">Pestaña Unidad 1</div>
-<div class="item">Identidad visual del posgrado</div>
-<div class="item">Materiales del seminario</div>
-<div class="item">Actividades y entregas</div>
-<div class="item">Foro de consultas</div>
-
-</div>
-
-</div>
-
+</main>
 </body>
 </html>
