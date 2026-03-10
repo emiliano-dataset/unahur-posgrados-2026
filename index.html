@@ -6,549 +6,105 @@
 <title>Posgrados UNAHUR · Seguimiento de diseño 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
 :root {
-  --bg: #f0eee9;
-  --surface: #faf9f7;
-  --surface2: #f4f2ed;
-  --border: #dedad2;
-  --border2: #ccc8c0;
-  --text: #18170f;
-  --muted: #7d786f;
-  --faint: #b0aa9f;
-  --header-bg: #1e1d1a;
-  --header-text: #f0eee9;
-
+  --bg: #f0eee9; --surface: #faf9f7; --surface2: #f4f2ed;
+  --border: #dedad2; --border2: #ccc8c0;
+  --text: #18170f; --muted: #7d786f; --faint: #b0aa9f;
+  --header-bg: #1e1d1a; --header-text: #f0eee9;
   --ok-bg: #e4f4ec;        --ok-fg: #0c5c35;      --ok-border: #b6dfc8;
   --conversar-bg: #fef2e6; --conversar-fg: #8c3608; --conversar-border: #f5c99a;
   --definir-bg: #e8eefb;   --definir-fg: #1a2f6e;  --definir-border: #b8caee;
   --pendiente-bg: #edebe6; --pendiente-fg: #5e5950; --pendiente-border: #d0ccc4;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
 
-body {
-  font-family: 'IBM Plex Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  font-size: 14px;
-  line-height: 1.6;
-}
+header { background: var(--header-bg); color: var(--header-text); padding: 56px 60px 50px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.header-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: rgba(240,238,233,.3); margin-bottom: 20px; }
+header h1 { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 30px; line-height: 1.15; letter-spacing: -.02em; color: var(--header-text); }
+header h1 .slash { color: rgba(240,238,233,.25); font-weight: 300; margin: 0 6px; }
+header h1 .sub { color: rgba(240,238,233,.35); font-weight: 300; }
+.header-rule { width: 24px; height: 1px; background: rgba(240,238,233,.14); margin: 28px 0; }
+.header-meta { display: flex; gap: 44px; flex-wrap: wrap; }
+.meta-item { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: rgba(240,238,233,.32); letter-spacing: .06em; text-transform: uppercase; }
+.meta-item strong { display: block; font-family: 'IBM Plex Sans', sans-serif; color: rgba(240,238,233,.75); font-size: 13px; font-weight: 500; text-transform: none; letter-spacing: 0; margin-top: 5px; }
+.deadline-pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(240,100,80,.4); color: rgba(240,160,140,.85); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .06em; padding: 7px 14px; border-radius: 2px; margin-top: 30px; text-transform: uppercase; background: rgba(240,80,60,.08); }
 
-/* ── HEADER ── */
-header {
-  background: var(--header-bg);
-  color: var(--header-text);
-  padding: 56px 60px 50px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-
-.header-eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: rgba(240,238,233,.3);
-  margin-bottom: 20px;
-}
-
-header h1 {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 600;
-  font-size: 30px;
-  line-height: 1.15;
-  letter-spacing: -.02em;
-  color: var(--header-text);
-  margin-bottom: 0;
-}
-
-header h1 .slash {
-  color: rgba(240,238,233,.25);
-  font-weight: 300;
-  margin: 0 6px;
-}
-
-header h1 .sub {
-  color: rgba(240,238,233,.35);
-  font-weight: 300;
-}
-
-.header-rule {
-  width: 24px;
-  height: 1px;
-  background: rgba(240,238,233,.14);
-  margin: 28px 0;
-}
-
-.header-meta {
-  display: flex;
-  gap: 44px;
-  flex-wrap: wrap;
-}
-
-.meta-item {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: rgba(240,238,233,.32);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-.meta-item strong {
-  display: block;
-  font-family: 'IBM Plex Sans', sans-serif;
-  color: rgba(240,238,233,.75);
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: none;
-  letter-spacing: 0;
-  margin-top: 5px;
-}
-
-.deadline-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(240,100,80,.4);
-  color: rgba(240,160,140,.85);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: .06em;
-  padding: 7px 14px;
-  border-radius: 2px;
-  margin-top: 30px;
-  text-transform: uppercase;
-  background: rgba(240,80,60,.08);
-}
-
-/* ── LAYOUT ── */
-main {
-  padding: 52px 60px 90px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
+main { padding: 52px 60px 90px; max-width: 1200px; margin: 0 auto; }
 section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+.section-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 400; letter-spacing: .14em; color: var(--faint); }
+.section-title { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 14px; letter-spacing: -.01em; color: var(--text); }
+.section-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; max-width: 600px; line-height: 1.7; }
+.divider { height: 1px; background: var(--border); margin: 0 0 56px; }
 
-.section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 8px;
-}
-
-.section-num {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: .14em;
-  color: var(--faint);
-}
-
-.section-title {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: -.01em;
-  color: var(--text);
-}
-
-.section-sub {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 24px;
-  max-width: 600px;
-  line-height: 1.7;
-}
-
-.divider {
-  height: 1px;
-  background: var(--border);
-  margin: 0 0 56px;
-}
-
-/* ── TAGS ── */
-.tag {
-  display: inline-block;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 2px;
-  white-space: nowrap;
-}
+.tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
 .tag.ok        { background: var(--ok-bg);        color: var(--ok-fg);        border: 1px solid var(--ok-border); }
 .tag.conversar { background: var(--conversar-bg);  color: var(--conversar-fg); border: 1px solid var(--conversar-border); }
 .tag.definir   { background: var(--definir-bg);    color: var(--definir-fg);   border: 1px solid var(--definir-border); }
 .tag.pendiente { background: var(--pendiente-bg);  color: var(--pendiente-fg); border: 1px solid var(--pendiente-border); }
 
-/* ── TIMELINE ── */
-.timeline {
-  display: flex;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.tl-step {
-  flex: 1;
-  padding: 26px 22px;
-  border-right: 1px solid var(--border);
-  position: relative;
-}
+/* TIMELINE */
+.timeline { display: flex; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.tl-step { flex: 1; padding: 26px 22px; border-right: 1px solid var(--border); }
 .tl-step:last-child { border-right: none; }
-
-.tl-icon {
-  width: 34px; height: 34px;
-  border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px;
-  border: 1px solid transparent;
-}
+.tl-icon { width: 34px; height: 34px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid transparent; }
 .tl-icon.done     { background: var(--ok-bg);        border-color: var(--ok-border); }
 .tl-icon.active   { background: var(--definir-bg);    border-color: var(--definir-border); }
 .tl-icon.upcoming { background: var(--pendiente-bg);  border-color: var(--pendiente-border); }
 .tl-icon.urgent   { background: #fff0ee; border-color: #f5b8b0; }
-
-.tl-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 5px;
-  line-height: 1.4;
-}
-
-.tl-date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: var(--faint);
-  letter-spacing: .04em;
-}
+.tl-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; color: var(--text); margin-bottom: 5px; line-height: 1.4; }
+.tl-date { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--faint); letter-spacing: .04em; }
 .tl-date.urgent { color: #c0392b; font-weight: 600; }
 
-/* ── COLORS ── */
-.colors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(176px, 1fr));
-  gap: 12px;
-}
-
-.color-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
+/* COLORS */
+.colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 12px; }
+.color-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
 .color-swatch { height: 68px; position: relative; }
-
-.hex-label {
-  position: absolute;
-  bottom: 8px; right: 10px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: rgba(255,255,255,.45);
-  letter-spacing: .04em;
-}
-
-.hex-label.dark {
-  color: rgba(0,0,0,.3);
-}
-
+.hex-label { position: absolute; bottom: 8px; right: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: rgba(255,255,255,.45); letter-spacing: .04em; }
 .color-info { padding: 14px 15px; }
+.color-name { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+.color-desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
 
-.color-name {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  margin-bottom: 4px;
-  letter-spacing: -.01em;
-}
-
-.color-desc {
-  font-size: 11.5px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
-/* ── PROGRAM CARDS ── */
-.programs {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 12px;
-}
-
-.program-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-  transition: box-shadow .18s, border-color .18s;
-}
-.program-card:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,.07);
-  border-color: var(--border2);
-}
-
+/* PROGRAMS */
+.programs { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.program-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: box-shadow .18s, border-color .18s; }
+.program-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.07); border-color: var(--border2); }
 .card-stripe { height: 4px; }
 .card-body { padding: 20px 22px 22px; }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.card-body h3 { font-family: 'IBM Plex Sans', sans-serif; font-size: 13.5px; font-weight: 600; line-height: 1.45; flex: 1; }
+.card-note { font-size: 12.5px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+.card-pills { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 14px; }
+.pill { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 2px; border: 1px solid var(--border); color: var(--faint); background: var(--bg); display: flex; align-items: center; gap: 5px; }
+.pill.done { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok-fg); }
+.campus-row { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--faint); display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid var(--border); letter-spacing: .03em; text-transform: uppercase; }
+.campus-badge { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: .08em; padding: 2px 7px; border-radius: 2px; text-transform: uppercase; }
+.campus-badge.creada    { background: var(--ok-bg); color: var(--ok-fg); border: 1px solid var(--ok-border); }
+.campus-badge.pendiente { background: var(--conversar-bg); color: var(--conversar-fg); border: 1px solid var(--conversar-border); }
 
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 10px;
-}
+/* BOXES */
+.info-box  { background: var(--definir-bg);  border-left: 3px solid var(--definir-fg);  padding: 14px 18px; font-size: 13px; color: var(--definir-fg);  line-height: 1.7; margin-top: 14px; border-radius: 0 4px 4px 0; }
+.ok-box    { background: var(--ok-bg);       border-left: 3px solid var(--ok-fg);       padding: 14px 18px; font-size: 13px; color: var(--ok-fg);       line-height: 1.7; margin-top: 10px; border-radius: 0 4px 4px 0; }
+.urgent-box{ background: #fff5f4;            border-left: 3px solid #c0392b;            padding: 14px 18px; font-size: 13px; color: #922b21;            line-height: 1.7; margin-top: 10px; border-radius: 0 4px 4px 0; }
 
-.card-body h3 {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 13.5px;
-  font-weight: 600;
-  line-height: 1.45;
-  flex: 1;
-}
-
-.card-note {
-  font-size: 12.5px;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 14px;
-}
-
-.card-pills {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
-
-.pill {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  padding: 3px 9px;
-  border-radius: 2px;
-  border: 1px solid var(--border);
-  color: var(--faint);
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.pill.done {
-  background: var(--ok-bg);
-  border-color: var(--ok-border);
-  color: var(--ok-fg);
-}
-
-.campus-row {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: var(--faint);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  letter-spacing: .03em;
-  text-transform: uppercase;
-}
-
-.campus-badge {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  padding: 2px 7px;
-  border-radius: 2px;
-  text-transform: uppercase;
-}
-.campus-badge.creada    { background: var(--ok-bg);        color: var(--ok-fg);        border: 1px solid var(--ok-border); }
-.campus-badge.pendiente { background: var(--conversar-bg);  color: var(--conversar-fg); border: 1px solid var(--conversar-border); }
-
-/* ── INFO BOXES ── */
-.info-box {
-  background: var(--definir-bg);
-  border-left: 3px solid var(--definir-fg);
-  padding: 14px 18px;
-  font-size: 13px;
-  color: var(--definir-fg);
-  line-height: 1.7;
-  margin-top: 14px;
-  border-radius: 0 4px 4px 0;
-}
-
-.ok-box {
-  background: var(--ok-bg);
-  border-left: 3px solid var(--ok-fg);
-  padding: 14px 18px;
-  font-size: 13px;
-  color: var(--ok-fg);
-  line-height: 1.7;
-  margin-top: 10px;
-  border-radius: 0 4px 4px 0;
-}
-
-.urgent-box {
-  background: #fff5f4;
-  border-left: 3px solid #c0392b;
-  padding: 14px 18px;
-  font-size: 13px;
-  color: #922b21;
-  line-height: 1.7;
-  margin-top: 10px;
-  border-radius: 0 4px 4px 0;
-}
-
-/* ── ESTRUCTURA ── */
-.structure-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.struct-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 24px;
-}
-
-.struct-card-title {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-}
-
+/* ESTRUCTURA */
+.structure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.struct-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 24px; }
+.struct-card-title { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: .02em; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; color: var(--text); }
 .struct-items { display: flex; flex-direction: column; gap: 4px; }
+.struct-item { display: flex; align-items: center; gap: 12px; font-size: 13px; padding: 9px 12px; background: var(--surface2); border-radius: 4px; border: 1px solid transparent; }
+.struct-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 500; color: var(--faint); width: 18px; flex-shrink: 0; }
 
-.struct-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  padding: 9px 12px;
-  background: var(--surface2);
-  border-radius: 4px;
-  border: 1px solid transparent;
-  transition: border-color .15s;
-}
-.struct-item:hover { border-color: var(--border); }
-
-.struct-num {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
-  font-weight: 500;
-  color: var(--faint);
-  width: 18px;
-  flex-shrink: 0;
-  letter-spacing: .04em;
-}
-
-/* ── AULA CARTELERA INICIO ── */
-.inicio-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.inicio-header {
-  background: var(--header-bg);
-  padding: 28px 34px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-}
-
-.inicio-icon {
-  width: 42px; height: 42px;
-  border-radius: 5px;
-  background: rgba(240,238,233,.06);
-  border: 1px solid rgba(240,238,233,.08);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-
-.inicio-header-text h3 {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--header-text);
-  margin-bottom: 4px;
-  letter-spacing: -.01em;
-}
-
-.inicio-header-text p {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: rgba(240,238,233,.32);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-.inicio-body { padding: 30px 34px; }
-
-.inicio-sections {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.inicio-item {
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  padding: 14px 15px;
-  display: flex;
-  align-items: flex-start;
-  gap: 13px;
-  background: var(--surface2);
-  transition: border-color .15s;
-}
-.inicio-item:hover { border-color: var(--border2); }
-
-.inicio-item-icon {
-  width: 30px; height: 30px;
-  border-radius: 5px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-
-.inicio-item-label {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--text);
-}
-
-.inicio-item-sub {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: var(--faint);
-  margin-top: 3px;
-  line-height: 1.4;
-  letter-spacing: .02em;
-}
+/* ARCHIVOS */
+.files-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.file-item { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; transition: border-color .15s; }
+.file-item:hover { border-color: var(--border2); }
+.file-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.file-name { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.file-desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+.file-link { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--definir-fg); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; }
+.file-link:hover { text-decoration: underline; }
 
 @media (max-width: 720px) {
   header, main { padding-left: 22px; padding-right: 22px; }
@@ -557,7 +113,6 @@ section { margin-bottom: 56px; }
   .tl-step { border-right: none; border-bottom: 1px solid var(--border); }
   header h1 { font-size: 22px; }
 }
-
 </style>
 </head>
 <body>
@@ -567,19 +122,14 @@ section { margin-bottom: 56px; }
   <h1>Diseño de Posgrados<span class="slash">/</span><span class="sub">Seguimiento</span></h1>
   <div class="header-rule"></div>
   <div class="header-meta">
-    <div class="meta-item">Diseño
-      <strong>Emi</strong>
-    </div>
-    <div class="meta-item">Flujo
-      <strong>Figma → Moodle</strong>
-    </div>
-    <div class="meta-item">Posgrados activos
-      <strong>5 nuevos + MELC</strong>
-    </div>
+    <div class="meta-item">Diseño <strong>Emi</strong></div>
+    <div class="meta-item">Flujo <strong>Figma → Moodle</strong></div>
+    <div class="meta-item">Actualizado <strong>10 mar 2026</strong></div>
+    <div class="meta-item">Posgrados activos <strong>5 nuevos + MELC</strong></div>
   </div>
   <div class="deadline-pill">
     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    Entrega · 11–12 de marzo · esta semana
+    Entrega · 11–12 de marzo · mañana
   </div>
 </header>
 
@@ -587,52 +137,36 @@ section { margin-bottom: 56px; }
 
   <!-- 01 ESTADO GENERAL -->
   <section>
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <span class="section-title">Estado general del proceso</span>
-    </div>
-    <p class="section-sub">Semana del 4 de marzo · avance en paralelo por posgrado.</p>
-
+    <div class="section-header"><span class="section-num">01</span><span class="section-title">Estado general del proceso</span></div>
+    <p class="section-sub">10 de marzo · todas las carteleras codeadas · cambios de Fer aplicados · pendiente: aula seminario con bloques de contenido.</p>
     <div class="timeline">
       <div class="tl-step">
-        <div class="tl-icon done">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c5c35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
+        <div class="tl-icon done"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c5c35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div class="tl-label">Brief recibido</div>
         <div class="tl-date">4 mar</div>
       </div>
       <div class="tl-step">
-        <div class="tl-icon active">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </div>
-        <div class="tl-label">Paleta definida</div>
+        <div class="tl-icon done"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c5c35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="tl-label">Paleta definida · 5 de 6</div>
         <div class="tl-date">En curso</div>
       </div>
       <div class="tl-step">
-        <div class="tl-icon done">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c5c35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="tl-label">Aula cartelera MELC</div>
-        <div class="tl-date">Completada</div>
+        <div class="tl-icon done"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c5c35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="tl-label">Carteleras · 5 de 6</div>
+        <div class="tl-date">10 mar</div>
       </div>
       <div class="tl-step">
-        <div class="tl-icon active">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <div class="tl-label">Aulas cartelera · 5 posgrados</div>
-        <div class="tl-date">Iniciando</div>
+        <div class="tl-icon done"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0c5c35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="tl-label">Feedback Fer aplicado</div>
+        <div class="tl-date">10 mar</div>
       </div>
       <div class="tl-step">
-        <div class="tl-icon upcoming">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5e5950" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        </div>
-        <div class="tl-label">Aulas seminario base</div>
-        <div class="tl-date">Siguiente</div>
+        <div class="tl-icon active"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <div class="tl-label">Aula seminario + bloques</div>
+        <div class="tl-date">En curso</div>
       </div>
       <div class="tl-step">
-        <div class="tl-icon urgent">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
+        <div class="tl-icon urgent"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
         <div class="tl-label">Entrega</div>
         <div class="tl-date urgent">11–12 mar</div>
       </div>
@@ -643,177 +177,201 @@ section { margin-bottom: 56px; }
 
   <!-- 02 PALETA -->
   <section>
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <span class="section-title">Paleta de identidad</span>
-    </div>
+    <div class="section-header"><span class="section-num">02</span><span class="section-title">Paleta de identidad</span></div>
     <p class="section-sub">Cada posgrado tiene un color principal. La identidad visual es compartida entre el aula cartelera y las aulas de seminarios del mismo programa.</p>
-
     <div class="colors-grid">
-
       <div class="color-card">
         <div class="color-swatch" style="background:#6B2D8B"><span class="hex-label">#6B2D8B</span></div>
-        <div class="color-info">
-          <div class="color-name">Violeta</div>
-          <div class="color-desc">Maestría en Estudios Literarios · INKVERSO</div>
-          <span class="tag ok">Validado</span>
-        </div>
+        <div class="color-info"><div class="color-name">Violeta</div><div class="color-desc">Maestría en Estudios Literarios · INKVERSO</div><span class="tag ok">Validado</span></div>
       </div>
-
       <div class="color-card">
-        <div class="color-swatch" style="background:#4A7C3F"><span class="hex-label">#4A7C3F</span></div>
-        <div class="color-info">
-          <div class="color-name">Verde</div>
-          <div class="color-desc">Especialización en Problemas Filosóficos Contemporáneos</div>
-          <span class="tag ok">Confirmado</span>
-        </div>
+        <div class="color-swatch" style="background:#2D7D5A"><span class="hex-label">#2D7D5A</span></div>
+        <div class="color-info"><div class="color-name">Verde selva</div><div class="color-desc">Especialización en Estadística Aplicada en Salud y Educación</div><span class="tag ok">Confirmado</span></div>
       </div>
-
       <div class="color-card">
         <div class="color-swatch" style="background:#C8A02A"><span class="hex-label">#C8A02A</span></div>
-        <div class="color-info">
-          <div class="color-name">Amarillo maíz</div>
-          <div class="color-desc">Especialización en Bio-nanotecnología</div>
-          <span class="tag ok">Confirmado</span>
-        </div>
+        <div class="color-info"><div class="color-name">Amarillo maíz</div><div class="color-desc">Especialización en Bio-Nanotecnología · Bionanoespacio</div><span class="tag ok">Confirmado</span></div>
       </div>
-
+      <div class="color-card">
+        <div class="color-swatch" style="background:#4A7C3F"><span class="hex-label">#4A7C3F</span></div>
+        <div class="color-info"><div class="color-name">Verde</div><div class="color-desc">Especialización en Problemas Filosóficos Contemporáneos</div><span class="tag ok">Confirmado</span></div>
+      </div>
       <div class="color-card">
         <div class="color-swatch" style="background:#004958"><span class="hex-label">#004958</span></div>
-        <div class="color-info">
-          <div class="color-name">Azul petróleo</div>
-          <div class="color-desc">Sistema general de posgrado · referencia disponible</div>
-          <span class="tag definir">Referencia</span>
-        </div>
+        <div class="color-info"><div class="color-name">Azul petróleo</div><div class="color-desc">Especialización en Matemática Avanzada</div><span class="tag ok">Confirmado</span></div>
       </div>
-
       <div class="color-card">
-        <div class="color-swatch" style="background:#e0ddd6; display:flex; align-items:center; justify-content:center;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa49c" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        </div>
-        <div class="color-info">
-          <div class="color-name">Por definir</div>
-          <div class="color-desc">Esp. Matemática Avanzada · reunión referente pendiente</div>
-          <span class="tag pendiente">Pendiente</span>
-        </div>
+        <div class="color-swatch" style="background:#e0ddd6; display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa49c" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+        <div class="color-info"><div class="color-name">Por definir</div><div class="color-desc">Esp. IA aplicada a la Biotecnología · sin contacto con equipo</div><span class="tag pendiente">Pendiente</span></div>
       </div>
-
-      <div class="color-card">
-        <div class="color-swatch" style="background:#e0ddd6; display:flex; align-items:center; justify-content:center;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa49c" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        </div>
-        <div class="color-info">
-          <div class="color-name">Por definir</div>
-          <div class="color-desc">Esp. Estadística Aplicada · identidad creativa en construcción</div>
-          <span class="tag conversar">A conversar</span>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- 03 PROGRAMAS -->
+  <!-- 03 ARCHIVOS ACTIVOS -->
   <section>
-    <div class="section-header">
-      <span class="section-num">03</span>
-      <span class="section-title">Programas de posgrado</span>
-    </div>
-    <p class="section-sub">Cada programa requiere un combo: <strong>aula cartelera + aula base de seminario</strong>. Dos tipos de identidad: <strong>especial/creativa</strong> (con diseño original y salas propias) y <strong>pleno de color</strong> (identidad por color institucional).</p>
+    <div class="section-header"><span class="section-num">03</span><span class="section-title">Archivos activos</span></div>
+    <p class="section-sub">Archivos listos para pasar a CodePen y luego a Moodle. Todos incluyen header simulado de Moodle y guía de actualización anual.</p>
 
-    <!-- GRUPO ESPECIAL -->
+    <div style="margin-bottom:10px; margin-top:4px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#0c5c35; background:#e4f4ec; border:1px solid #b6dfc8; padding:4px 10px; border-radius:2px;">Carteleras · 5 de 6 completas</span>
+    </div>
+
+    <div class="files-grid" style="margin-bottom:24px;">
+      <div class="file-item">
+        <div class="file-dot" style="background:#6B2D8B;"></div>
+        <div>
+          <div class="file-name">inkverso-cartelera-v3.html</div>
+          <div class="file-desc">MELC · INKVERSO · violeta · con Archivo de la Especialización</div>
+          <a class="file-link" href="https://emiliano-dataset.github.io/unahur-posgrados-2026/inkverso-cartelera-v3.html" target="_blank">↗ Ver en GitHub Pages</a>
+        </div>
+      </div>
+      <div class="file-item">
+        <div class="file-dot" style="background:#2D7D5A;"></div>
+        <div>
+          <div class="file-name">estadistica-cartelera-codepen.html</div>
+          <div class="file-desc">Estadística Aplicada · verde selva · portada con puente SVG</div>
+          <a class="file-link" href="https://emiliano-dataset.github.io/unahur-posgrados-2026/estadistica-cartelera-codepen.html" target="_blank">↗ Ver en GitHub Pages</a>
+        </div>
+      </div>
+      <div class="file-item">
+        <div class="file-dot" style="background:#C8A02A;"></div>
+        <div>
+          <div class="file-name">bionano-cartelera-codepen.html</div>
+          <div class="file-desc">Bio-Nanotecnología · Bionanoespacio · dorado · nanopartícula SVG · 4 espacios especiales</div>
+          <a class="file-link" href="https://emiliano-dataset.github.io/unahur-posgrados-2026/bionano-cartelera-codepen.html" target="_blank">↗ Ver en GitHub Pages</a>
+        </div>
+      </div>
+      <div class="file-item">
+        <div class="file-dot" style="background:#4A7C3F;"></div>
+        <div>
+          <div class="file-name">filosofia-cartelera-codepen.html</div>
+          <div class="file-desc">Filosofía · portada verde #4A7C3F con caos tipográfico lima · resto en #4A7C3F</div>
+          <a class="file-link" href="https://emiliano-dataset.github.io/unahur-posgrados-2026/filosofia-cartelera-codepen.html" target="_blank">↗ Ver en GitHub Pages</a>
+        </div>
+      </div>
+      <div class="file-item">
+        <div class="file-dot" style="background:#004958;"></div>
+        <div>
+          <div class="file-name">matematica-cartelera-codepen.html</div>
+          <div class="file-desc">Matemática Avanzada · azul petróleo · cuadrícula SVG + fórmulas flotantes · solo Probabilidades confirmado</div>
+          <a class="file-link" href="https://emiliano-dataset.github.io/unahur-posgrados-2026/matematica-cartelera-codepen.html" target="_blank">↗ Ver en GitHub Pages</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:10px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#1a2f6e; background:#e8eefb; border:1px solid #b8caee; padding:4px 10px; border-radius:2px;">Aula seminario</span>
+    </div>
+
+    <div class="files-grid">
+      <div class="file-item">
+        <div class="file-dot" style="background:#6B2D8B;"></div>
+        <div>
+          <div class="file-name">inkverso-seminario-actual.html</div>
+          <div class="file-desc">MELC · violeta · con cambios Fer: sin año/nro en banner, Fechas importantes (4 hitos), tabla reducida</div>
+          <a class="file-link" href="https://emiliano-dataset.github.io/unahur-posgrados-2026/inkverso-seminario-actual.html" target="_blank">↗ Ver en GitHub Pages</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:16px;"><strong>Pendiente:</strong> Bloques de contenido / unidades semanales dentro del aula seminario — nuevo diseño a definir según feedback de Fer.</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 04 PROGRAMAS -->
+  <section>
+    <div class="section-header"><span class="section-num">04</span><span class="section-title">Programas de posgrado</span></div>
+    <p class="section-sub">Cada programa requiere un combo: <strong>aula cartelera + aula base de seminario</strong>.</p>
+
     <div style="margin-bottom:10px; margin-top:24px;">
       <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#1a2f6e; background:#e8eefb; border:1px solid #b8caee; padding:4px 10px; border-radius:2px;">✦ Identidad especial / creativa</span>
     </div>
 
     <div class="programs" style="margin-bottom:28px;">
-
       <div class="program-card">
         <div class="card-stripe" style="background:#6B2D8B"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Maestría en Estudios Literarios Contemporáneos · INKVERSO</h3><span class="tag ok">Identidad completa</span></div>
-          <p class="card-note">Diseño visual e identidad INKVERSO completos. Cartelera 2026 en campus. <strong>Pendiente: aula base de seminario.</strong> Salas especiales: Sala Sara Gallardo · Sala Luca Prodan.</p>
+          <div class="card-top"><h3>Maestría en Estudios Literarios Contemporáneos · INKVERSO</h3><span class="tag ok">Cartelera lista</span></div>
+          <p class="card-note">Cartelera v3 completa con Archivo de la Especialización. Seminario con cambios de Fer aplicados. Salas: Sala Sara Gallardo · Sala Luca Prodan · Biblioteca Miguel Cervantes. <strong>Pendiente: bloques de contenido en seminario.</strong></p>
           <div class="card-pills">
             <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Identidad</span>
             <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cartelera</span>
             <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Salas especiales</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Seminario base</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Bloques contenido</span>
           </div>
-          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
+          <div class="campus-row">Campus 2025 · <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
         <div class="card-stripe" style="background:#C8A02A"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Bio-nanotecnología · Bionanoespacio</h3><span class="tag ok">Color confirmado</span></div>
-          <p class="card-note">Amarillo maíz/dorado. Referencias visuales recibidas (Jorge). Salas especiales confirmadas: <strong>Bionanoeventos · Bionanoteca · Bionanoticias · LANSABionano</strong>. Logo LANSAB disponible. Imagen de nanoobjetos de becaria disponible para usar.</p>
+          <div class="card-top"><h3>Especialización en Bio-Nanotecnología · Bionanoespacio</h3><span class="tag ok">Cartelera lista</span></div>
+          <p class="card-note">Portada: nanopartícula concéntrica SVG en dorado sobre negro cálido. 4 espacios especiales: Bionanoeventos · Bionanoteca · Bionanoticias · LANSABionano. 3 seminarios con link + 6 a confirmar.</p>
           <div class="card-pills">
-            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Color</span>
-            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Referencias visuales</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Identidad</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cartelera</span>
             <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Salas especiales</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Seminario</span>
           </div>
-          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
+          <div class="campus-row">Campus 2026 · <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
-        <div class="card-stripe" style="background:#c4c0b8"></div>
+        <div class="card-stripe" style="background:#2D7D5A"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Estadística Aplicada en Salud y Educación</h3><span class="tag conversar">Identidad en desarrollo</span></div>
-          <p class="card-note">Concepto: <em>"La estadística como puente y lenguaje común"</em>. Estilo abstracto, líneas limpias, nodos, elementos alusivos a salud y educación. Color a definir · proponer opciones a la dirección.</p>
+          <div class="card-top"><h3>Especialización en Estadística Aplicada en Salud y Educación</h3><span class="tag ok">Cartelera lista</span></div>
+          <p class="card-note">Portada: puente SVG sobre fondo oscuro verde. Responsive completo. 7 seminarios (2 con link, 5 a confirmar).</p>
           <div class="card-pills">
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Color</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Identidad</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Seminario</span>
           </div>
-          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
+          <div class="campus-row">Campus 2026 · <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
-
     </div>
 
-    <!-- GRUPO PLENO DE COLOR -->
     <div style="margin-bottom:10px;">
       <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#5e5950; background:#edebe6; border:1px solid #d0ccc4; padding:4px 10px; border-radius:2px;">Pleno de color</span>
     </div>
 
     <div class="programs" style="margin-bottom:28px;">
-
       <div class="program-card">
         <div class="card-stripe" style="background:#4A7C3F"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Problemas Filosóficos Contemporáneos</h3><span class="tag ok">Color confirmado</span></div>
-          <p class="card-note">Verde confirmado. Reunión realizada con equipo referente. Sistema gráfico previo disponible como referencia.</p>
+          <div class="card-top"><h3>Especialización en Problemas Filosóficos Contemporáneos</h3><span class="tag ok">Cartelera lista</span></div>
+          <p class="card-note">Portada: fondo verde #4A7C3F con caos tipográfico lima (COLAPSO, DESEO, PODER, FELICIDAD, MITO…). Resto del aula en #4A7C3F. 6 seminarios del plan 2024 + TFI.</p>
           <div class="card-pills">
             <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Color</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Seminario</span>
           </div>
-          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
+          <div class="campus-row">Campus 2026 · <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
 
       <div class="program-card">
-        <div class="card-stripe" style="background:#c4c0b8"></div>
+        <div class="card-stripe" style="background:#004958"></div>
         <div class="card-body">
-          <div class="card-top"><h3>Especialización en Matemática Avanzada</h3><span class="tag pendiente">Color pendiente</span></div>
-          <p class="card-note">Reunión con equipo referente en curso. Color a definir. Sistema gráfico del año anterior disponible como referencia.</p>
+          <div class="card-top"><h3>Especialización en Matemática Avanzada · Agenda e Información</h3><span class="tag ok">Cartelera lista</span></div>
+          <p class="card-note">Portada: cuadrícula de cuaderno + fórmulas flotantes (∫, Σ, π, ∇…) sobre azul petróleo oscuro. Solo Probabilidades confirmado. <strong>Pendiente: plan de estudios completo.</strong></p>
           <div class="card-pills">
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Color</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Color</span>
+            <span class="pill done"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Cartelera</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Plan completo</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Seminario</span>
           </div>
-          <div class="campus-row">Campus: <span class="campus-badge creada">Creada</span></div>
+          <div class="campus-row">Campus 2026 · <span class="campus-badge creada">Creada</span></div>
         </div>
       </div>
-
     </div>
 
-    <!-- EN ESPERA -->
     <div style="margin-bottom:10px;">
       <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#8c3608; background:#fef2e6; border:1px solid #f5c99a; padding:4px 10px; border-radius:2px;">En espera · sin categoría en campus</span>
     </div>
@@ -823,182 +381,93 @@ section { margin-bottom: 56px; }
         <div class="card-stripe" style="background:#c4c0b8"></div>
         <div class="card-body">
           <div class="card-top"><h3>Especialización en IA aplicada a la Biotecnología</h3><span class="tag pendiente">Sin noticias</span></div>
-          <p class="card-note">Sin contacto con equipo referente. Categoría en campus pendiente de creación por el equipo de campus. Se incorpora al flujo cuando esté disponible.</p>
+          <p class="card-note">Sin contacto con equipo referente. Categoría en campus pendiente. Color sin definir. Se incorpora al flujo cuando esté disponible.</p>
           <div class="card-pills">
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Color</span>
             <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Cartelera</span>
-            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Aula seminario</span>
+            <span class="pill"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/></svg>Seminario</span>
           </div>
-          <div class="campus-row">Campus: <span class="campus-badge pendiente">Pendiente de crear</span></div>
+          <div class="campus-row"><span class="campus-badge pendiente">Pendiente de crear</span></div>
         </div>
       </div>
     </div>
 
-    <div class="info-box" style="margin-top:20px;"><strong>Estrategia de trabajo:</strong> Las aulas base se desarrollan en la categoría general de Posgrado y luego se asocian a cada categoría específica. Esto permite avanzar en paralelo sin depender de que todas las categorías estén disponibles en campus.</div>
-    <div class="urgent-box"><strong>Prioridad inmediata:</strong> Aula base de seminario MELC/INKVERSO en violeta. Deadline: 11–12 de marzo.</div>
+    <div class="urgent-box" style="margin-top:20px;"><strong>Prioridad inmediata:</strong> Bloques de contenido / unidades semanales en aula seminario · diseño nuevo según feedback Fer · entrega 11–12 mar.</div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- 04 ESTRUCTURA -->
+  <!-- 05 ESTRUCTURA -->
   <section>
-    <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-title">Estructura de las aulas</span>
-    </div>
-    <p class="section-sub">Las secciones son comunes a todos los posgrados. La identidad visual varía por programa.</p>
-
+    <div class="section-header"><span class="section-num">05</span><span class="section-title">Estructura de las aulas</span></div>
+    <p class="section-sub">Secciones comunes a todos los posgrados. Identidad visual variable por programa. Incorpora cambios de Fer (10 mar).</p>
     <div class="structure-grid">
-
       <div class="struct-card">
         <div class="struct-card-title">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           Aula Cartelera
         </div>
         <div class="struct-items">
-          <div class="struct-item"><span class="struct-num">01</span>Encabezado del Posgrado</div>
+          <div class="struct-item"><span class="struct-num">01</span>Portada / Encabezado del Posgrado</div>
           <div class="struct-item"><span class="struct-num">02</span>Texto de bienvenida</div>
           <div class="struct-item"><span class="struct-num">03</span>Resoluciones de la Carrera</div>
-          <div class="struct-item"><span class="struct-num">04</span>Cronograma general del Posgrado</div>
-          <div class="struct-item"><span class="struct-num">05</span>Aulas de cursada</div>
-          <div class="struct-item"><span class="struct-num">06</span>Miniaturas de accesos a seminarios</div>
-          <div class="struct-item"><span class="struct-num">07</span>Espacio de Consultas</div>
-          <div class="struct-item"><span class="struct-num">08</span>Espacio de Avisos</div>
+          <div class="struct-item"><span class="struct-num">04</span>Cronograma General del Posgrado</div>
+          <div class="struct-item"><span class="struct-num">05</span>Aulas de cursada (grid 4 col)</div>
+          <div class="struct-item"><span class="struct-num">06</span>Espacios especiales (si aplica)</div>
+          <div class="struct-item"><span class="struct-num">07</span>Avisos + Consultas (foros)</div>
+          <div class="struct-item"><span class="struct-num">08</span>Archivo de la Especialización (solo MELC)</div>
         </div>
       </div>
-
       <div class="struct-card">
         <div class="struct-card-title">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           Aula Base de Seminario
         </div>
         <div class="struct-items">
-          <div class="struct-item"><span class="struct-num">01</span>Pestaña Presentación</div>
-          <div class="struct-item"><span class="struct-num">02</span>Identidad visual del posgrado</div>
-          <div class="struct-item"><span class="struct-num">03</span>Materiales del seminario</div>
-          <div class="struct-item"><span class="struct-num">04</span>Actividades</div>
-          <div class="struct-item"><span class="struct-num">05</span>Foro de consultas</div>
-          <div class="struct-item"><span class="struct-num">06</span>Unidad 1</div>
+          <div class="struct-item"><span class="struct-num">01</span>Banner (sin año ni número)</div>
+          <div class="struct-item"><span class="struct-num">02</span>Presentación del seminario</div>
+          <div class="struct-item"><span class="struct-num">03</span>Documentos (Programa + CV docente)</div>
+          <div class="struct-item"><span class="struct-num">04</span>Fechas importantes (4 hitos clave)</div>
+          <div class="struct-item"><span class="struct-num">05</span>Entregas (Tarea Moodle)</div>
+          <div class="struct-item"><span class="struct-num">06</span>Foros: Escrituras · Consultas · Avisos</div>
+          <div class="struct-item"><span class="struct-num">07</span>Materiales (Carpeta Moodle)</div>
+          <div class="struct-item"><span class="struct-num">08</span>Bloques de contenido / Unidades ⬅ pendiente</div>
         </div>
       </div>
-
     </div>
+    <div class="info-box" style="margin-top:14px;"><strong>Cambios Fer aplicados (10 mar):</strong> Sin "cartelera" en encabezados · Cronograma General del Posgrado sin año · Fechas importantes (solo hitos) · Salas especiales incorporadas en Bio-nano · Bloques de contenido pendientes de diseño.</div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- 05 INICIO AULA CARTELERA -->
+  <!-- 06 LINKS -->
   <section>
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <span class="section-title">Inicio de trabajo · Aula Cartelera</span>
-    </div>
-    <p class="section-sub">Punto de partida del desarrollo. Se diseña el aula cartelera base que luego se adapta a la identidad de cada posgrado.</p>
-
-    <div class="inicio-card">
-      <div class="inicio-header">
-        <div class="inicio-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(240,238,233,.55)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <div class="inicio-header-text">
-          <h3>Aula Cartelera · Base</h3>
-          <p>Estructura común · 8 secciones fijas · identidad variable por posgrado</p>
+    <div class="section-header"><span class="section-num">06</span><span class="section-title">Links del proyecto</span></div>
+    <p class="section-sub">Repositorio y páginas de previsualización.</p>
+    <div class="files-grid">
+      <div class="file-item">
+        <div class="file-dot" style="background:#1e1d1a;"></div>
+        <div>
+          <div class="file-name">GitHub Pages</div>
+          <div class="file-desc">Previsualización de todos los archivos</div>
+          <a class="file-link" href="https://emiliano-dataset.github.io/unahur-posgrados-2026/" target="_blank">↗ emiliano-dataset.github.io/unahur-posgrados-2026</a>
         </div>
       </div>
-
-      <div class="inicio-body">
-        <div class="inicio-sections">
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="5" rx="1"/><path d="M3 11h18M3 16h10"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Encabezado</div>
-              <div class="inicio-item-sub">Identidad · nombre · institución</div>
-            </div>
-          </div>
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Texto de bienvenida</div>
-              <div class="inicio-item-sub">Presentación del programa</div>
-            </div>
-          </div>
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Resoluciones</div>
-              <div class="inicio-item-sub">Documentación oficial</div>
-            </div>
-          </div>
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Cronograma</div>
-              <div class="inicio-item-sub">Planificación del posgrado</div>
-            </div>
-          </div>
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Aulas de cursada</div>
-              <div class="inicio-item-sub">Accesos al espacio de cursada</div>
-            </div>
-          </div>
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Miniaturas</div>
-              <div class="inicio-item-sub">Accesos directos a cada aula</div>
-            </div>
-          </div>
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Espacio de Consultas</div>
-              <div class="inicio-item-sub">Canal de comunicación directa</div>
-            </div>
-          </div>
-
-          <div class="inicio-item">
-            <div class="inicio-item-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2f6e" stroke-width="1.8" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            </div>
-            <div>
-              <div class="inicio-item-label">Espacio de Avisos</div>
-              <div class="inicio-item-sub">Novedades y comunicados</div>
-            </div>
-          </div>
-
+      <div class="file-item">
+        <div class="file-dot" style="background:#1e1d1a;"></div>
+        <div>
+          <div class="file-name">Repositorio GitHub</div>
+          <div class="file-desc">Código fuente de todos los archivos</div>
+          <a class="file-link" href="https://github.com/emiliano-dataset/unahur-posgrados-2026" target="_blank">↗ github.com/emiliano-dataset/unahur-posgrados-2026</a>
         </div>
-
-        <div class="ok-box">
-          <strong>Boceto en alta · MELC/INKVERSO:</strong> <a href="https://codepen.io/editor/Emiliano-Esmoris-the-flexboxer/pen/019cc361-f3ec-7e27-8cbd-fc2e196f42cf" style="color:inherit;" target="_blank">Ver en CodePen →</a>
+      </div>
+      <div class="file-item">
+        <div class="file-dot" style="background:#6B2D8B;"></div>
+        <div>
+          <div class="file-name">CodePen INKVERSO</div>
+          <div class="file-desc">Boceto activo cartelera MELC</div>
+          <a class="file-link" href="https://codepen.io/editor/Emiliano-Esmoris-the-flexboxer/pen/019cc361-f3ec-7e27-8cbd-fc2e196f42cf" target="_blank">↗ Ver en CodePen</a>
         </div>
-
-        <div class="info-box" style="margin-top:8px;">
-          <strong>Próximo paso:</strong> Aula base de seminario MELC en violeta · luego replicar estructura para los 5 posgrados adaptando color e identidad.
-        </div>
-
       </div>
     </div>
   </section>
